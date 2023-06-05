@@ -9,6 +9,59 @@ window.addEventListener("scroll", function() {
       navbar.classList.remove("fixed");
     }
 });
+// register form validation
+function validateForm() {
+  var password = document.getElementById('password').value;
+  var confirmPassword = document.getElementById('confirm_password').value;
+  var username = document.forms["myForm"]["username"].value;
+  var phone = document.forms["myForm"]["phone"].value;
+  var email = document.forms["myForm"]["email"].value;
+
+  if (password !== confirmPassword) {
+      alert("Error: Passwords do not match!");
+      return false; // Prevent form submission
+  }
+  else{
+  // Passwords match, allow form submission
+  return true;
+  }
+
+  if (username == "") {
+      alert("Please enter your name.");
+      return false;
+  }
+  if (phone == "") {
+      alert("Please enter your mobile number.");
+      return false;
+  }
+  if (email == "") {
+      alert("Please enter your email.");
+      return false;
+  }
+  if (password == "") {
+      alert("Please enter your password.");
+      return false;
+  }
+
+  var phoneRegex = /^[0-9]{10}$/;
+  if (!mobileRegex.test(phone)) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return false;
+  }
+
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+  }
+
+  if (!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/)) {
+      alert(
+          'Password should be 8 to 15 characters long and should contain at least one lowercase letter,   one uppercase letter, one number, and one special character.'
+      );
+      return;
+  }
+}
 // closing the login and register page
 function closeLogin() {
   window.location.replace('index.php');
