@@ -1,0 +1,464 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    /* outline: dashed red 0.2px; */
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* header section styling */
+.vertical{
+    border-left: 2px solid rgb(21, 21, 21);
+    height: 15px;
+    
+}
+.nav-vertical{
+    border-left: 2px solid rgb(255, 255, 255);
+    height: 15px;
+}
+header{
+    width: 100%;
+    background-color: #33FF00;
+    height: 30px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+header ul li img{
+    width: 15px;
+    margin-right: 4px;
+}
+header ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+.header-description{
+    display: flex;
+    margin: 0px 20px 0px 20px;
+    font-family: sans-serif;
+    font-size: 12px;
+    
+}
+/* navbar styling */
+.logo img{
+    width: 40px;
+    margin-right: 20px;
+}
+.logo{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.logo a{
+    font-family: 'Poppins', sans-serif;
+    color: azure;
+    font-weight: 600;
+    font-size: 20px;
+    
+}
+.navbar{
+    position: absolute;
+    width: 100%;
+    padding: 30px 0px;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 0px;
+    background: #161616;
+    z-index: 4;
+    transition: top 0.4s ease;
+
+}
+.navbar.fixed {
+    position: fixed; /* When the navbar becomes fixed */
+    top: 0; /* Set the top value to 0 to fix it at the top of the screen */
+  }
+.max-width{
+    width: 1150px;
+    padding: 0px 80px;
+    margin: auto;
+}
+.navbar .max-width{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.green-button{
+    display: inline-block;
+    background-color: #33FF00;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: azure;
+    margin-left: 30px;
+    padding: 6px 12px;
+    transition: transform 0.3s, background 0.3s;
+}
+.green-button:hover{
+    transform: scale(1.03);
+    background-color:#00d512cd;
+}
+.navbar .menu li .nav-buttons{
+    color: white ;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 35px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li .nav-buttons:hover{
+    color: rgb(25, 193, 25);
+}
+
+/* home section styling */
+.background-image{
+    background-image: url(../images/rooms/2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 65px;
+    height: 87vh;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    position: relative;
+    text-align: center;  
+}
+.background-image .background-text{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+.background-image .green-button{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+/* Track */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track - background */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #00ff00; /* Set the color of the scrollbar handle to green */
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00cc00; /* Set the color of the scrollbar handle to a darker shade of green on hover */
+  }
+/* check availability styling stars */
+.check-availability{
+    height: 130px;
+    width: 1040px;
+    position: absolute;
+    top: 88%;
+    left: 16%;
+    padding: 20px 0px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #7F7F7F;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px 5px rgba(171, 171, 171, 0.25);
+}
+.check-availability form .top{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+.check-availability form .down{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.check-availability form label{
+    display: block;
+}
+.check-availability form .inputs{
+    width: 250px;
+}
+.check-availability form button{
+    width: 250px;
+    height: 30px;
+    margin-top: 17px;
+    display: inline-block;
+    background-color: #33FF00;
+    border-style: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: azure;
+
+}
+.check-availability form .input-fields{
+    width: 250px;
+    height: 30px;
+    margin-top: 4px;
+    padding-left: 5px;
+    
+}
+.our-services{
+    width: 1040px;
+    height: 355px;
+    text-align: center;
+    margin: 200px auto 130px;
+} 
+.our-services .our-services-text h1{
+    margin-bottom: 4px;
+}
+.our-services .our-services-text h6{
+    color: #7F7F7F;
+}
+.our-services .services{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    
+}
+.our-services .services .services-box{
+    width: 245px;
+    height: 172px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px 5px rgba(171, 171, 171, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.our-services .services .services-box img{
+    width: 54px;
+}
+.our-services .services .services-box h4{
+    font-size: 25px;
+    font-weight: 200;
+}
+.our-services .services .services-box span{
+    font-size: 10px;
+    line-height: 10px;
+    color: #7F7F7F;
+    font-family: 'Poppins', sans-serif;
+}
+/* room section starts */
+.room-section-background{
+    position: relative;
+    width: 100%;
+    height: 1017px;
+    background: #EEFFEA;
+    display: flex;
+    justify-content: center;  
+    margin-bottom: 130px;
+}
+
+.room-section-background .room-section-content{
+    width: 1040px;
+    text-align: center;
+    margin-top: 51px;
+}
+.room-section-background .room-section-content .room-section-text h6{
+    color: #7F7F7F;
+}
+.room-section-images-container{
+    width: 333px;
+    height: 333px;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
+.room-section-images{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    margin: 60px 0px;
+
+}
+.room-section-images-container .rooms{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    color: #ffffff;
+    transition: .7s;
+    position: relative;
+    
+}
+.room-section-images-container .rooms:hover{
+    transform: scale(1.07);
+}
+.room-section-images-container .rooms h6{
+    margin-bottom: 20px;
+}
+.room-section-content .room-section-images .button-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.room-section-content .room-section-images .rooms:hover .button-popup {
+    opacity: 1;
+    transition: transform 0.3s;
+}
+
+.room-section-content .room-section-images  .green-button {
+    display: inline-block;
+    background-color: #33FF00;
+    border-radius: 20px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: azure;
+    margin-left: 0px;
+    padding: 6px 20px;
+    opacity: 0;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.room-section-content .room-section-images .rooms:hover .green-button {
+    opacity: 1;
+    transition: transform 0.3s;
+}
+.room-section-content .room-section-images .rooms .green-button:hover{
+    transform: scale(1.03);
+    background-color:#00d512cd;
+}
+ .green-buttons{
+    display: inline-block;
+    background-color: #33FF00;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: azure;
+    padding: 6px 12px;
+    transition: transform 0.3s, background 0.3s;
+}
+ .green-buttons:hover{
+    transform: scale(1.03);
+    background-color:#00d512cd;
+}
+
+/* gallery section starts */
+.gallery-section{
+    width: 100%;
+    height: 471px;
+    text-align: center;
+}
+.gallery-section .gallery-section-text h6{
+    color: #7F7F7F;
+    margin-top: 5px;
+}
+.gallery-section-images .gallery-wrapper{
+    background-color: #EEFFEA;
+    max-width: 100%;
+    margin-top: 50px;
+    height: 340px;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+.gallery-section-images .gallery-wrapper img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 20px 10px;
+}
+.gallery-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* footer styling starts here */
+.footer{
+    width: 100%;
+    height: 321px;
+    background: #424740;
+    color: #FFFFFF;
+    margin-top: 130px;
+}
+.footer-content{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+}
+.footer-content .info{
+    margin: 0 120px 0 80px;
+}
+.footer-content .info .info-text{
+    margin-top: 30px ;
+    margin-left: 60px;
+    
+}
+.footer-content .info .info-text h6{
+    color: #7F7F7F;
+}
+.footer-content .info .social-media a img{
+    width: 30px;
+    margin: 10px;
+}
+.vertical-line{
+    
+    height: 200px;
+    border-left: 2px solid #7F7F7F;
+    
+}
+.useful-links .useful-links-content{
+    margin: 0 150px 0 50px;
+}
+.useful-links .useful-links-content ul li{
+    margin-top: 23px;
+    list-style: none;
+}
+.useful-links .useful-links-content ul li a{
+    color: #FFFFFF;
+}
+.contact-info .content-info-content{
+    margin-left: 50px;
+}
+.contact-info .content-info-content ul{
+    margin-top: 3px;
+}
+.contact-info .content-info-content ul li{
+    margin-top: 23px;
+    list-style: none;
+}
+.contact-info .content-info-content ul li img{
+    width: 20px;
+    margin-right: 10px;
+}
+.contact-info .content-info-content ul li a{
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
