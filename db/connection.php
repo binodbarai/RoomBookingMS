@@ -1,6 +1,6 @@
 <?php
     // Create a connection object
-    $conn = new mysqli('localhost', 'root', '', 'roombooking');
+    $conn = mysqli_connect('localhost','root','','roombooking');
     
     // Check for connection errors
     if ($conn->connect_error) {

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@
     <div class="overlay"></div>
     <form action="" method="post">
         <div class="container">
-            <span class="cross">&times;</span>
+            <span class="cross"><a href="index.php">&times;</a></span>
             <h1>Login</h1>
             <div class="inputbox">
                 <input type="text" name="email/phone" required>

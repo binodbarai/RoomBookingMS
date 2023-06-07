@@ -2,7 +2,7 @@
     include 'connection.php';
     session_start();
     
-    if(isset($_POST['submit'])){
+    if(isset($_POST('submit'))){
         echo "Im here";
         $username = $_POST['username'];
         $email = $_POST['email'];      
