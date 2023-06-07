@@ -58,9 +58,11 @@ function validateForm() {
         );
         return false;
     }
-
+    else{
     // Form is valid, allow submission
     return true;
+    }
+    
 }
 
 // closing the login and register page

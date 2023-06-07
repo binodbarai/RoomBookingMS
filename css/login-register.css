@@ -11,7 +11,6 @@
     background-color: rgba(54, 77, 38, 0.5);
     z-index: 1;
     opacity:  1; 
-    transition: 1s;
 }
 .container{
     display: flex;
@@ -23,7 +22,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    transition: 2s;
     width: 400px;
     background-color: #ffff;
     height: 520px;
@@ -63,6 +61,11 @@
     transition: all 0.3s ease;
     color: #000000;
 
+}
+.inputbox .error {
+    text-align: center;
+    color: #f00;
+    margin-top: 10px;
 }
 .cross a:hover{
     color: #33FF00;
