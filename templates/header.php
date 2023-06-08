@@ -46,7 +46,7 @@
                 <li><div class="nav-vertical"></div></li>
                 <li><a class="nav-buttons"href="#">Contact</a></li>
                 <li><div><a href="../project/login.php" class="green-button">Login</a></div></li>
-                <li><a href="#" class="green-button">Book now</a></li>
+                <li><a href="../project/rooms.php" class="green-button">Book now</a></li>
             </ul>
         </div>
     </nav>
