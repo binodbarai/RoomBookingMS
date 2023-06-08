@@ -13,7 +13,6 @@ html{
 .vertical{
     border-left: 2px solid rgb(21, 21, 21);
     height: 15px;
-    
 }
 .nav-vertical{
     border-left: 2px solid rgb(255, 255, 255);
@@ -595,35 +594,39 @@ header ul{
 /* book page started */
 .booking-details{
     width: 1040px;
-    margin: 150px auto;
+    margin: 100px auto;
     display: flex;
     justify-content: space-between;
     gap: 40px;
 }
 .booking-details .booking-details-left{
     width: 70%;
-    height: 400px;
+    height: 350px;
+    padding: 25px 40px;
     background: #FFFFFF;
     border: 1px solid #DEDEDE;
     box-shadow: 0px 4px 15px rgba(138, 138, 138, 0.25);
 }
-.booking-details .booking-details-right{
+.booking-details .booking-details-left h6{
+    color: #7F7F7F;
+}
+.booking-details-right{
     width: 30%;
     background: #FFFFFF;
     padding: 30px;
     border: 1px solid #DEDEDE;
     box-shadow: 0px 4px 15px rgba(138, 138, 138, 0.25);
 }
-.booking-details .booking-details-right img{
+.booking-details-right img{
     width: 280px ;
     object-fit: contain;
     border-radius: 5px;
 } 
-.booking-details .booking-details-right h2{
+.booking-details-right h2{
     margin-top: 30px;
 }
 .booking-details-right .services-box{
-    height: 200px;
+    height: 100px;
 }
 .booking-details-right .services-box img{
     width: 20px;
@@ -638,9 +641,73 @@ header ul{
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    
+}
+.booking-details-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.booking-details-form label{
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.booking-details-form input{
+    width: 250px;
+    height: 30px;
+}
+.booking-details-form input[type="email"]{
+    margin-bottom: 10px;
+}
+.booking-details-form input[type="submit"]{
+    background-color: #00ff00;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 4px;
+    width: 250px;
+    height: 35px;
+}
+.booking-details-form input[type="submit"]:hover{
+    background-color: #00cc00;
+}
+.booking-details-right .price-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-
-
-
+/* payment styling started */
+.payment-details{
+    width: 1040px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.payment-details-left{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+.payment-details-left-top{
+    padding: 25px 40px;
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    box-shadow: 0px 4px 15px rgba(138, 138, 138, 0.25);
+}
+.payment-details-left-bottom{
+    padding: 25px 40px;
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    box-shadow: 0px 4px 15px rgba(138, 138, 138, 0.25);
+}
+.payment-details-left-top ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    margin-top: 30px;
+}

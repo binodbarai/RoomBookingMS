@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Now</title>
+    <title>Payment</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,38 +18,39 @@ session_start();
     <script src="./js/script.js"></script>
 </head>
 <body>
-    <!-- header -->
-    <?php include 'templates/header.php'?>
+    <!-- header section -->
+    <?php include 'templates/header.php';?>
 
-    <div class="booking-details">
-        <div class="booking-details-left">
-            <h2>Enter your details</h2>
-            <br>
-            <h6>We will use this information to book your room</h6>
-            <form action="" class="booking-details-form">
-                <div class="left">
-                    <div>
-                        <label for="fullname">Fullname</label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label for="phonenumber">Phone Number</label>
-                        <input type="number">
-                    </div>
+    <!-- container section -->
+    <div class="payment-details">
+        <div class="payment-details-left">
+            <div class="payment-details-left-top">
+                <h2>Your Details</h2>
+            <ul>
+                <div class="">
+                    <li>Binod</li>
                 </div>
-                <div class="right">
-                    <div>
-                        <label for="email">E-mail</label>
-                        <input type="email">
-                    </div>
-                    <div>
-                        <br>
-                        <label for="phonenumber"></label>
-                        <input type="submit" value="Continue">
-                    </div>
+                <div class="vertical"></div>
+                <div class="">
+                    <li>abc@gmail.com</li>
                 </div>
-            </form>
+                <div class="vertical"></div>
+                <div class="">
+                    <li>9827842388</li>
+                </div>
+            </ul>
+            </div>
+            <div class="payment-details-left-bottom">
+                <h2>Choose your payment option</h2>
+                <button></button>>
+                <div class="payment-option">
 
+                </div>
+                <div class="payment-button">
+                    <p>100% safe and secure payment</p>
+                    <a href="">Book Now</a>
+                </div>
+            </div>
         </div>
         <div class="booking-details-right">
             <img src="./images/rooms/room3.jpg" alt=""><br>
@@ -67,8 +68,5 @@ session_start();
             </div>
         </div>
     </div>
-
-    <!-- footer -->
-    <?php include 'templates/footer.php'?>
 </body>
 </html>
