@@ -42,13 +42,15 @@ session_start();
             </div>
             <div class="payment-details-left-bottom">
                 <h2>Choose your payment option</h2>
-                <button></button>>
-                <div class="payment-option">
-
-                </div>
-                <div class="payment-button">
-                    <p>100% safe and secure payment</p>
-                    <a href="">Book Now</a>
+                <div class="payment-section">
+                    <div class="payment-option">
+                        <a href=""class="payment-option-buttons">PAY WITH ESEWA</a>
+                        <a href=""class="payment-option-buttons">PAY AT HOTEL</a>
+                        </div>
+                    <div class="payment-button">
+                        <div class="safe-message"><img src="./images/icons/secure-payment.png" alt=""><span>100% safe and secure payment</span></div>
+                        <a href="">Book Now</a>
+                    </div>
                 </div>
             </div>
         </div>

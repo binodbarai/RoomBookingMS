@@ -19,8 +19,11 @@
                     $_SESSION['email'] = $row['email'];
                 }
                 else{
-                    $error="Incorrect email or password.";  
+                    $error="Incorrect password.";  
                 }
+            }
+            else{
+                $error="Incorrect email.";  
             }
         }
     ?>
