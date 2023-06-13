@@ -9,14 +9,3 @@ window.addEventListener("scroll", function() {
         navbar.classList.remove("fixed");
     }
 });
-
-// register form validation
-
-
-// closing the login and register page
-function closeLogin() {
-    window.location.replace('index.php');
-}
-
-const closeButton = document.querySelector('.cross');
-closeButton.addEventListener('click', closeLogin);

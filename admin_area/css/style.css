@@ -1,0 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    background-color: #14012f;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
+    margin: 4px auto;
+}
+header{
+    background-color: beige;
+}
+.header-links{
+    width: 1200px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-around;
+}
+header button{
+    background-color: #1d82db;
+    padding: 10px 20px;
+    border: none;
+    margin: 20px;
+    border-radius: 10px;
+}
+header button:hover{
+    background-color: #084f8d;
+}
+header button a{
+    color: white;
+    text-decoration: none;
+}
+/* table styling  */
+.searchbox{
+    margin-top: 70px;
+    margin-left: 80px;
+}
+
+.search {
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    background: #00985f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+input {
+    border: 1px solid #707070;
+    outline: none;
+    border-radius: 5px;
+    height: 35px;
+    margin-right: 5px;
+    padding: 0 10px;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto 100px;
+    /* border-collapse: collapse; */
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 0px 0 10px 0;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+th {
+    background-color: #333333;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.edit,
+.delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.edit {
+    background-color: #007bff;
+}
+
+.delete {
+    background-color: #dc3545;
+}
+
+.operation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

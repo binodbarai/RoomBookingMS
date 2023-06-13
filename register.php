@@ -15,15 +15,29 @@
         $encrypt_key="anything";
         $encrypted_password=openssl_encrypt($password,$ciphering_value,$encrypt_key);
 
-        $sql = "INSERT INTO `user_tbl` (`id`, `username`, `email`, `phone`, `password`) VALUES (NULL, '$username', '$email', '$phone', '$encrypted_password')";
-        $result = mysqli_query($conn, $sql);
-        if($result){
+        //selecting email
+        $insert_sql = "SELECT * FROM user_tbl WHERE email='$email'";
+        $select_result = mysqli_query($conn, $insert_sql);
+        $row = mysqli_fetch_assoc($select_result);
+        if($row>0){
+            echo "<script>
+                alert('Email already exists!');
+                window.location.href='index.php';
+                </script>";
+        }
+        else{
+            $sql = "INSERT INTO `user_tbl` (`id`, `username`, `email`, `phone`, `password`) VALUES (NULL, '$username', '$email', '$phone', '$encrypted_password')";
+            $result = mysqli_query($conn, $sql);
+            if($result){
             echo "<script>
                 alert('Data inserted successfully! Now you can login.');
                 window.location.href='index.php';
                 </script>";
             unset($_SESSION['email']);
         }
+        }
+
+        
     }
 ?>
 <!DOCTYPE html>
@@ -57,7 +71,7 @@
                 <i></i>
             </div>
             <div class="inputbox">
-                <input type="number" name="phone" required>
+                <input type="tel" name="phone" required>
                 <span>Phone Number</span>
                 <i></i>
             </div>

@@ -195,7 +195,7 @@
                 <div class="rooms-button"><a href="#" class="green-buttons">View all rooms</a></div>
             </div>
         </div>
-        <div class="gallery-section">
+        <div class="gallery-section" id="gallery">
             <div class="gallery-section-text">
                 <h1>Gallery</h1>
                 <h6>Create Unforgettable Memories: Whether you're looking for adventure, relaxation, or a little bit of both, we've got you covered. <br>Choose from our range of activities and experiences to create your ideal vacation</h6>
