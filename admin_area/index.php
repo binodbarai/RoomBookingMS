@@ -18,8 +18,8 @@ include('../db/connection.php');
     </nav>
     <header>
         <div class="header-links">
-            <button><a href="" class="nav-link">Add rooms</a></button>
-            <button><a href="" class="nav-link">Show All rooms</a></button>
+            <button><a href="addrooms.php" class="nav-link">Add rooms</a></button>
+            <button><a href="index.php?showrooms" class="nav-link">Show All rooms</a></button>
             <button><a href="" class="nav-link">Add Users</a></button>
             <button><a href="index.php?showalluser" class="nav-link">Show All users</a></button>
             <button><a href="" class="nav-link">Bookings</a></button>
@@ -31,8 +31,11 @@ include('../db/connection.php');
         if(isset($_GET['showalluser'])){
             include 'showalluser.php';
         }
+        if(isset($_GET['showrooms'])){
+            include 'showallrooms.php';
+        }
         ?>
-        
+
     </div>
 </body>
 </html>

@@ -16,6 +16,7 @@
         $search = "%";
         if(isset($_POST['search'])){
             $search = $search.$_POST['search'];
+            
         }
         $search.= "%";
         $select = "SELECT * FROM user_tbl where username like '".$search."'";
