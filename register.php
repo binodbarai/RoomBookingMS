@@ -3,7 +3,6 @@
     session_start();
     
     if(isset($_POST['submit'])){
-        echo "Im here";
         $username = $_POST['username'];
         $email = $_POST['email'];      
         $phone = $_POST['phone'];

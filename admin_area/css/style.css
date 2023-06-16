@@ -41,6 +41,10 @@ header button a{
     color: white;
     text-decoration: none;
 }
+.container{
+    width: 80%;
+    margin: 20px auto;
+}
 /* table styling  */
 .searchbox{
     margin-top: 70px;
@@ -67,7 +71,7 @@ input {
 }
 
 table {
-    width: 90%;
+    width: 1040px;
     margin: 0 auto 100px;
     /* border-collapse: collapse; */
     text-align: center;

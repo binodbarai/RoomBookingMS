@@ -64,10 +64,6 @@
         }
     }
 ?>
-
-
-
-
     <script>
     function validateForm() {
         var fullname = document.forms["myForm"]["username"].value;

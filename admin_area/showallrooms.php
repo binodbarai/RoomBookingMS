@@ -1,11 +1,7 @@
-<form action="" method="post">
-    <div class="searchbox">
-        <input type="text" name="search"><input class="search" type="submit" value="Search">
-    </div>
-    <h1>All Rooms</h1>
-</form>
 
-<table border=1 rules="all">
+<h1>All Rooms</h1>
+<table id="datatableid" border="1" rules="all">
+    <thead>
         <tr>
             <th>Room Number</th>
             <th>Room Type</th>
@@ -13,15 +9,13 @@
             <th>Capacity</th>
             <th>Price</th>
             <th>Status</th>
-            <th colspan="2">Action</th>
+            <th>Action</th>
         </tr>
+    </thead>
+    <tbody>
         <?php
-            $search = "%";
-            if(isset($_POST['search'])){
-                $search = $search.$_POST['search'];
-            }
-            $search.= "%";
-            $select = "SELECT * FROM rooms_tbl where room_number like '".$search."'";
+           
+            $select = "SELECT * FROM rooms_tbl";
             $result = mysqli_query($conn, $select);
         
             if($result){
@@ -37,7 +31,7 @@
                         <td>
                             <div class="operation">
                                 <a class="edit" href="update_room.php?updateid='.$row['room_number'].'">Edit/Update</a>
-                                <a class="delete" href="delete.php?deleteid='.$row['room_number'].'">Delete</a>                            
+                                <a class="delete" href="delete_room.php?deleteid='.$row['room_number'].'">Delete</a>                            
                             </div>
                         </td>
                     </tr>
@@ -45,4 +39,5 @@
                 }
             }
         ?>
+    </tbody>
     </table>

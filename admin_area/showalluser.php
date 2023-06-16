@@ -1,25 +1,18 @@
-<form action="" method="post">
-    <div class="searchbox">
-        <input type="text" name="search"><input class="search" type="submit" value="Search">
-    </div>
-    <h1>All users</h1>
-</form>
-<table border=1 rules="all">
-    <tr>
-        <th>ID</th>
-        <th>Full Name</th>
-        <th>phone</th>
-        <th>Email</th>
-        <th colspan="2">Action</th>
-    </tr>
+
+<h1>All users</h1>
+<table id="datatableid" border=1 rules="all">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>phone</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
     <?php
-        $search = "%";
-        if(isset($_POST['search'])){
-            $search = $search.$_POST['search'];
-            
-        }
-        $search.= "%";
-        $select = "SELECT * FROM user_tbl where username like '".$search."'";
+        $select = "SELECT * FROM user_tbl";
         $result = mysqli_query($conn, $select);
     
         if($result){
@@ -41,4 +34,5 @@
             }
         }
     ?>
+    </tbody>
 </table>

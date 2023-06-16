@@ -8,6 +8,7 @@ include('../db/connection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css    ">
 </head>
 <body>
     <nav>
@@ -37,5 +38,12 @@ include('../db/connection.php');
         ?>
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datatableid').DataTable();
+        });
+    </script>
 </body>
 </html>

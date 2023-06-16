@@ -208,7 +208,7 @@
                     <div class="room-card-details">
                     <h2>Family Room</h2>
                     <div class="services-box">
-                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
+                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" a   lt=""><span>TV</span></div>
                         <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
                         <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
                     </div>
@@ -229,12 +229,6 @@
         </div>
     </div>
     <a href="" class="next-page-button">Next Page</a>
-
-
-
-
-
-
     <!-- footer section -->
     <?php include 'templates/footer.php'?>
 </body>

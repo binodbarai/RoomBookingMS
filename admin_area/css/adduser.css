@@ -12,7 +12,7 @@ body {
     display: grid;
     place-items: center;
     line-height: 2;
-    background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+    background-image: linear-gradient(-225deg, #f7f7f7 0%, #115168 48%, #0a0855 100%);
 }
 
 .row {

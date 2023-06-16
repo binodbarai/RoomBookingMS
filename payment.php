@@ -43,7 +43,7 @@ session_start();
             <div class="payment-details-left-bottom">
                 <h2>Choose your payment option</h2>
                 <div class="payment-section">
-                    <div class="payment-option">
+                    <div class="payment-optison">
                         <a href=""class="payment-option-buttons">PAY WITH ESEWA</a>
                         <a href=""class="payment-option-buttons">PAY AT HOTEL</a>
                         </div>

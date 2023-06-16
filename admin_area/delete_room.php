@@ -10,7 +10,8 @@
             echo "<script>
                     alert('Room Deleted Successfully');
                 </script>";
+            header('location:index.php?showrooms');
         }
-        header('location:index.php?showrooms');
+        
     }
 ?>
