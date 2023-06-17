@@ -1,6 +1,5 @@
 <?php
     include 'db/connection.php';
-    session_start();
         if(isset($_POST['submit'])){
             
             $email= $_POST['email'];
@@ -42,7 +41,6 @@
 
 </head>
 <body>
-    <div class="overlay"></div>
     <form action="" method="post">
         <div class="container">
             <span class="cross"><a href="index.php">&times;</a></span>
@@ -63,7 +61,7 @@
                 <i></i>
             </div>
             <div class="login-button-section">
-                <input type="submit" value="Login" name="submit" class="green-buttons"><a href="@">Forgot password?</a>
+                <input type="submit" onclick="toggleLogin()"value="Login" name="submit" class="green-buttons"><a href="@">Forgot password?</a>
             </div>
             <div><p>Don't have an account?</p></div>
             <a href="register.php" class="green-buttons" name="register">Register</a>

@@ -1,3 +1,7 @@
+<?php
+include 'db/connection.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +20,7 @@
 <body>
     <!-- header and navbar -->
     <?php include 'templates/header.php'?>
+   
     <div class="content">
         <!-- home section starts -->
         <div class="background-image">
@@ -70,7 +75,7 @@
         </div>
 
         <!-- our services section starts -->
-        <div class="our-services">
+        <div class="our-services" id="about">
             <div class="our-services-text">
                 <h1>Choose Your Excellent Choice<br>For Vacation</h1>
                 <h6>Create Unforgettable Memories: Whether you're looking for adventure, relaxation, or a little bit of both, we've got you covered.<br>Choose from our range of activities and experiences to create your ideal vacation</h6>
@@ -107,14 +112,20 @@
                 </div>
             </div>
         </div>
-        <div class="room-section-background">
+        <div class="room-section-background" id="rooms">
             <div class="room-section-content">
                 <div class="room-section-text">
                     <h1>Our Rooms & Suites</h1><h6>Book Your Room Today: Ready to experience the comfort and luxury of our rooms?<br>Book your stay today and get ready to enjoy all that Khumbila Hotel has to offer.</h6>
                 </div>
+                <?php
+                    $select_query="SELECT * from rooms_tbl";
+                    $result=mysqli_query($conn,$select_query);
+                    
+                ?>
+                <?php while($row=mysqli_fetch_assoc($result)){?>
                 <div class="room-section-images">
                     <div class="room-section-images-container">
-                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/room1.jpg');">
+                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('<?php echo $row["room_image"]?>');">
                             <div class="room-type">
                                 <h3>Family Room</h3><h6>Available room</h6>
                             </div>
@@ -126,71 +137,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="room-section-images-container">
-                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/room2.jpg');">
-                            <div class="room-type">
-                                <h3>Family Room</h3><h6>Available room</h6>
-                            </div>
-                            <div class="room-price">
-                                <h3>Rs 1600</h3><h6>per night</h6>
-                            </div>
-                            <div class="button-popup">
-                                <button class="green-button">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-section-images-container">
-                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/room3.jpg');">
-                            <div class="room-type">
-                                <h3>Family Room</h3><h6>Available room</h6>
-                            </div>
-                            <div class="room-price">
-                                <h3>Rs 1600</h3><h6>per night</h6>
-                            </div>
-                            <div class="button-popup">
-                                <button class="green-button">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-section-images-container">
-                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/room4.jpg');">
-                            <div class="room-type">
-                                <h3>Family Room</h3><h6>Available room</h6>
-                            </div>
-                            <div class="room-price">
-                                <h3>Rs 1600</h3><h6>per night</h6>
-                            </div>
-                            <div class="button-popup">
-                                <button class="green-button">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-section-images-container">
-                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/room5.jpg');">
-                            <div class="room-type">
-                                <h3>Family Room</h3><h6>Available room</h6>
-                            </div>
-                            <div class="room-price">
-                                <h3>Rs 1600</h3><h6>per night</h6>
-                            </div>
-                            <div class="button-popup">
-                                <button class="green-button">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="room-section-images-container">
-                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/room6.jpg');">
-                            <div class="room-type">
-                                <h3>Family Room</h3><h6>Available room</h6>
-                            </div>
-                            <div class="room-price">
-                                <h3>Rs 1600</h3><h6>per night</h6>
-                            </div>
-                            <div class="button-popup">
-                                <button class="green-button">Book Now</button>
-                            </div>
-                        </div>
-                    </div>    
+                <?php
+                }
+                ?>
+                        
                 </div>
                 <div class="rooms-button"><a href="#" class="green-buttons">View all rooms</a></div>
             </div>

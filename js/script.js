@@ -16,3 +16,13 @@ function toggleMenu(){
     let submenu = document.querySelector(".profile-menu-wrap");
     submenu.classList.toggle("active"); 
 }
+function toggleLogin(){
+    let submenu = document.querySelector(".container");
+    let checkingSession = "<?php echo isset($_SESSION['email'])?>";
+    if(checkingSession == "true"){
+        submenu.classList.remove("active"); 
+    }else{
+        submenu.classList.toggle("active");
+    } 
+    
+}

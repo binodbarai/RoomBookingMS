@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +43,7 @@ session_start();
                 <li><div class="nav-vertical"></div></li>
                 <li><a class="nav-buttons"href="#about">About</a></li>
                 <li><div class="nav-vertical"></div></li>
-                <li><a class="nav-buttons"href="#">Rooms</a></li>
+                <li><a class="nav-buttons"href="#rooms">Rooms</a></li>
                 <li><div class="nav-vertical"></div></li>
                 <li><a class="nav-buttons"href="#gallery">Gallery</a></li>
                 <?php
@@ -55,14 +53,20 @@ session_start();
                         <li><a href="../project/yourbookings.php" class="green-button">Your Bookings</a></li>';
                     }
                     else{
-                        echo '<li><div><a href="../project/login.php" class="green-button">Login</a></div></li>
+                        echo '<li><div><button id="login-button" onclick="toggleLogin()" class="green-button">Login</button></div></li>
                         <li><a href="../project/rooms.php" class="green-button">Book now</a></li>';
                     }
+                    
                 ?>
                 
                 
             </ul>
         </div>
+        <?php
+            include 'login.php';
+        ?>
+        
+        
         <div class="profile-menu-wrap">
             <div class="profile-menu">
                 <div class="user-info">
