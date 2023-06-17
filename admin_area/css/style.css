@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+img{
+    width: 100px;
+    height: 70px;
+}
 nav{
     background-color: #14012f;
     height: 40px;

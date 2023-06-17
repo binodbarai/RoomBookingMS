@@ -109,6 +109,10 @@ header ul{
     margin: 35px;
     transition: color 0.3s ease;
 }
+.navbar .menu{
+    display: flex;
+    align-items: center;
+}
 .navbar .menu li{
     list-style: none;
     display: inline-block;
@@ -116,6 +120,57 @@ header ul{
 .navbar .menu li .nav-buttons:hover{
     color: rgb(25, 193, 25);
 }
+.profile-menu-wrap{
+    position: absolute;
+    top: 90%;
+    right: 10%;
+    width: 250px;
+    max-height: 300px;
+    visibility: hidden;
+    transition: 0.5s;
+    opacity: 0;
+}
+.profile-menu-wrap.active{
+    visibility: visible;
+    opacity: 1;
+    top: 100%;
+   
+}
+.profile-menu{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 5%;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info img{
+    margin-right: 15px;
+}
+.profile-menu hr{
+    margin: 10px 0 10px 0;
+}
+.profile-menu a{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.profile-menu a img{
+    width: 25px;
+}
+.profile-menu a p{
+    color: #161616;
+    font-size: 18px;
+    font-weight: 300;
+    margin-left: 16px;
+    transition: 0.3s;
+}
+.profile-menu a:hover p{
+    font-weight: bold;
+}
+
 
 /* home section styling */
 .background-image{

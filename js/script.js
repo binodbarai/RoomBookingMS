@@ -1,4 +1,4 @@
-// this is for the position fixed navbar
+
 window.addEventListener("scroll", function() {
     var navbar = document.querySelector(".navbar");
     var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
@@ -9,3 +9,10 @@ window.addEventListener("scroll", function() {
         navbar.classList.remove("fixed");
     }
 });
+
+
+
+function toggleMenu(){
+    let submenu = document.querySelector(".profile-menu-wrap");
+    submenu.classList.toggle("active"); 
+}

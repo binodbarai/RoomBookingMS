@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,10 +48,34 @@
                 <li><a class="nav-buttons"href="#">Rooms</a></li>
                 <li><div class="nav-vertical"></div></li>
                 <li><a class="nav-buttons"href="#gallery">Gallery</a></li>
+                <?php
+                    if(isset($_SESSION['email'])){
+                        echo '
+                        <li><div><img width="35px" src="./images/icons/profile.png" alt="" onclick="toggleMenu()"></div></li>
+                        <li><a href="../project/yourbookings.php" class="green-button">Your Bookings</a></li>';
+                    }
+                    else{
+                        echo '<li><div><a href="../project/login.php" class="green-button">Login</a></div></li>
+                        <li><a href="../project/rooms.php" class="green-button">Book now</a></li>';
+                    }
+                ?>
                 
-                <li><div><a href="../project/login.php" class="green-button">Login</a></div></li>
-                <li><a href="../project/rooms.php" class="green-button">Book now</a></li>
+                
             </ul>
+        </div>
+        <div class="profile-menu-wrap">
+            <div class="profile-menu">
+                <div class="user-info">
+                    <img width="35px" src="./images/icons/profile.png" alt="">
+                    <h3>Bharat Deuba</h3>
+                </div>
+                <hr>
+                <a href="logout.php">
+                    <img src="./images/icons/logout.png" alt="">
+                    <p>Logout</p>
+                </a>
+
+            </div>
         </div>
     </nav>
 </body>
