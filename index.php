@@ -18,6 +18,7 @@ session_start();
     
 </head>
 <body>
+    
     <!-- header and navbar -->
     <?php include 'templates/header.php'?>
    
@@ -117,31 +118,38 @@ session_start();
                 <div class="room-section-text">
                     <h1>Our Rooms & Suites</h1><h6>Book Your Room Today: Ready to experience the comfort and luxury of our rooms?<br>Book your stay today and get ready to enjoy all that Khumbila Hotel has to offer.</h6>
                 </div>
-                <?php
-                    $select_query="SELECT * from rooms_tbl";
-                    $result=mysqli_query($conn,$select_query);
-                    
-                ?>
-                <?php while($row=mysqli_fetch_assoc($result)){?>
                 <div class="room-section-images">
-                    <div class="room-section-images-container">
-                        <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('<?php echo $row["room_image"]?>');">
-                            <div class="room-type">
-                                <h3>Family Room</h3><h6>Available room</h6>
-                            </div>
-                            <div class="room-price">
-                                <h3>Rs 1600</h3><h6>per night</h6>
-                            </div>
-                            <div class="button-popup">
-                                <button class="green-button">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-                }
-                ?>
+                    <?php
+                        $select_query="SELECT * from rooms_tbl";
+                        $result=mysqli_query($conn,$select_query);
                         
+                    ?>
+                    <?php $count=0;?>
+                        <?php while($row=mysqli_fetch_assoc($result) ){?>
+                            <div class="room-section-images-container">
+                                <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/<?php echo $row["room_image"]?>');">
+                                    <div class="room-type">
+                                        <h3><?php echo $row["room_type"]?></h3><h6><?php echo $row["room_status"]?> room</h6>
+                                    </div>
+                                    <div class="room-price">
+                                        <h3>NRP <?php echo $row["price"]?></h3><h6>per night</h6>
+                                    </div>
+                                    <div class="button-popup">
+                                        <button class="green-button">Book Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php $count++;?>
+                            <?php
+                                if($count>5){
+                                    break;
+                                }
+                            ?>
+                        <?php
+                        }?>       
                 </div>
+                        
+                
                 <div class="rooms-button"><a href="#" class="green-buttons">View all rooms</a></div>
             </div>
         </div>

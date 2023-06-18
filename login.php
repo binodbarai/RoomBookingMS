@@ -61,7 +61,7 @@
                 <i></i>
             </div>
             <div class="login-button-section">
-                <input type="submit" onclick="toggleLogin()"value="Login" name="submit" class="green-buttons"><a href="@">Forgot password?</a>
+                <input type="submit" onclick="stayLogin()" value="Login" name="submit" class="green-buttons"><a href="@">Forgot password?</a>
             </div>
             <div><p>Don't have an account?</p></div>
             <a href="register.php" class="green-buttons" name="register">Register</a>

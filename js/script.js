@@ -18,11 +18,5 @@ function toggleMenu(){
 }
 function toggleLogin(){
     let submenu = document.querySelector(".container");
-    let checkingSession = "<?php echo isset($_SESSION['email'])?>";
-    if(checkingSession == "true"){
-        submenu.classList.remove("active"); 
-    }else{
-        submenu.classList.toggle("active");
-    } 
-    
+    submenu.classList.toggle("active");
 }
