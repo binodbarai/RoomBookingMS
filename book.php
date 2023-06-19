@@ -49,11 +49,19 @@ session_start();
                     </div>
                 </div>
             </form>
-
         </div>
+        <?php 
+        if(isset($_GET['room_numberid'])){
+            $id = $_GET['room_numberid'];
+            $sql="SELECT * from rooms_tbl where room_number=$id";
+            $result=mysqli_query($conn,$sql);
+
+        }
+        ?>
+        <?php while($row=mysqli_fetch_assoc($result)){?>
         <div class="booking-details-right">
-            <img src="./images/rooms/room3.jpg" alt=""><br>
-            <h2>Family Room</h2>
+            <img src="./images/rooms/<?php echo $row['room_image'];?>" alt=""><br>
+            <h2><?php echo $row['room_type'];?></h2>
             <div class="services-box">
                 <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
                 <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
@@ -62,10 +70,12 @@ session_start();
             <div class="price-box"> 
                 <h3>Payable Amount</h3>
                 <div>
-                <h2>Rs. 1600</h2><span>per night</span>
+                <h2>Rs.<?php echo $row['price'];?></h2><span>per night</span>
                 </div>
             </div>
         </div>
+        <?php 
+        }?>
     </div>
 
     <!-- footer -->

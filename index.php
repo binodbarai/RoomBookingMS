@@ -150,7 +150,7 @@ session_start();
                 </div>
                         
                 
-                <div class="rooms-button"><a href="#" class="green-buttons">View all rooms</a></div>
+                <div class="rooms-button"><a href="rooms.php" class="green-buttons">View all rooms</a></div>
             </div>
         </div>
         <div class="gallery-section" id="gallery">

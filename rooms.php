@@ -75,13 +75,19 @@
             </form>
         </div>
         <div class="all-rooms-container">
+            <?php
+                $sql = "SELECT * FROM rooms_tbl";
+                $result = mysqli_query($conn, $sql);
+                
+            ?>
+            <?php while($row = mysqli_fetch_assoc($result)){?>
             <div class="room-card">
                 <div class="room-card-image">
                     <div class="image">
-                        <a href=""><img src="./images/rooms/room1.jpg" alt=""></a>
+                        <a href=""><img src="./images/rooms/<?php echo $row['room_image'];?>" alt=""></a>
                     </div>
                     <div class="room-card-details">
-                    <h2>Family Room</h2>
+                    <h2><?php echo $row['room_type'];?></h2>
                     <div class="services-box">
                         <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
                         <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
@@ -91,141 +97,17 @@
                 </div>
                 <div class="room-card-price">
                     <div class="price">
-                        <h2>Rs. 1600</h2>
+                        <h2>Rs.<?php echo $row['price'];?></h2>
                         <h6>per night</h6>
                     </div>
                     <div class="book-now">
-                        <a href="" class="book-now-button">Book Now</a>
+                        <a href="book.php?room_numberid=<?php echo $row['room_number'];?>" class="book-now-button">Book Now</a>
                     </div>
                 </div>
             </div>
             <hr>
-            <div class="room-card">
-                <div class="room-card-image">
-                    <div class="image">
-                        <a href=""><img src="./images/rooms/room1.jpg" alt=""></a>
-                    </div>
-                    <div class="room-card-details">
-                    <h2>Family Room</h2>
-                    <div class="services-box">
-                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
-                        <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
-                        <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
-                    </div>
-                </div>
-                </div>
-                <div class="room-card-price">
-                    <div class="price">
-                        <h2>Rs. 1600</h2>
-                        <h6>per night</h6>
-                    </div>
-                    <div class="book-now">
-                        <a href="" class="book-now-button">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="room-card">
-                <div class="room-card-image">
-                    <div class="image">
-                        <a href=""><img src="./images/rooms/room1.jpg" alt=""></a>
-                    </div>
-                    <div class="room-card-details">
-                    <h2>Family Room</h2>
-                    <div class="services-box">
-                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
-                        <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
-                        <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
-                    </div>
-                </div>
-                </div>
-                <div class="room-card-price">
-                    <div class="price">
-                        <h2>Rs. 1600</h2>
-                        <h6>per night</h6>
-                    </div>
-                    <div class="book-now">
-                        <a href="" class="book-now-button">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="room-card">
-                <div class="room-card-image">
-                    <div class="image">
-                        <a href=""><img src="./images/rooms/room1.jpg" alt=""></a>
-                    </div>
-                    <div class="room-card-details">
-                    <h2>Family Room</h2>
-                    <div class="services-box">
-                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
-                        <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
-                        <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
-                    </div>
-                </div>
-                </div>
-                <div class="room-card-price">
-                    <div class="price">
-                        <h2>Rs. 1600</h2>
-                        <h6>per night</h6>
-                    </div>
-                    <div class="book-now">
-                        <a href="" class="book-now-button">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="room-card">
-                <div class="room-card-image">
-                    <div class="image">
-                        <a href=""><img src="./images/rooms/room1.jpg" alt=""></a>
-                    </div>
-                    <div class="room-card-details">
-                    <h2>Family Room</h2>
-                    <div class="services-box">
-                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
-                        <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
-                        <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
-                    </div>
-                </div>
-                </div>
-                <div class="room-card-price">
-                    <div class="price">
-                        <h2>Rs. 1600</h2>
-                        <h6>per night</h6>
-                    </div>
-                    <div class="book-now">
-                        <a href="" class="book-now-button">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="room-card">
-                <div class="room-card-image">
-                    <div class="image">
-                        <a href=""><img src="./images/rooms/room1.jpg" alt=""></a>
-                    </div>
-                    <div class="room-card-details">
-                    <h2>Family Room</h2>
-                    <div class="services-box">
-                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" a   lt=""><span>TV</span></div>
-                        <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
-                        <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
-                    </div>
-                </div>
-                </div>
-                <div class="room-card-price">
-                    <div class="price">
-                        <h2>Rs. 1600</h2>
-                        <h6>per night</h6>
-                    </div>
-                    <div class="book-now">
-                        <a href="" class="book-now-button">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            
+            <?php 
+            }?>
         </div>
     </div>
     <a href="" class="next-page-button">Next Page</a>

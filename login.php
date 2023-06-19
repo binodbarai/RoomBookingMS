@@ -42,7 +42,7 @@
 </head>
 <body>
     <form action="" method="post">
-        <div class="container">
+        <div class="container <?php if($error){echo "active";}?>">
             <span class="cross"><a href="index.php">&times;</a></span>
             <h1>Login</h1>
             <div class="inputbox">
@@ -61,7 +61,7 @@
                 <i></i>
             </div>
             <div class="login-button-section">
-                <input type="submit" onclick="stayLogin()" value="Login" name="submit" class="green-buttons"><a href="@">Forgot password?</a>
+                <input type="submit" value="Login" name="submit" class="green-buttons"><a href="@">Forgot password?</a>
             </div>
             <div><p>Don't have an account?</p></div>
             <a href="register.php" class="green-buttons" name="register">Register</a>
