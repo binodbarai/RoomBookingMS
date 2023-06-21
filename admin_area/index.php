@@ -26,7 +26,7 @@ if(!isset($_SESSION['email'])){
             <button><a href="addrooms.php" class="nav-link">Add rooms</a></button>
             <button><a href="index.php?showrooms" class="nav-link">Show All rooms</a></button>
             <button><a href="index.php?showalluser" class="nav-link">Show All users</a></button>
-            <button><a href="" class="nav-link">Gallery</a></button>
+            <button><a href="index.php?gallery" class="nav-link">Gallery</a></button>
             <button><a href="" class="nav-link">Bookings</a></button>
             <button><a href="logout.php" class="nav-link">Logout</a></button>
         </div>
@@ -38,6 +38,9 @@ if(!isset($_SESSION['email'])){
         }
         if(isset($_GET['showrooms'])){
             include 'showallrooms.php';
+        }
+        if(isset($_GET['gallery'])){
+            include 'gallery.php';
         }
         ?>
 

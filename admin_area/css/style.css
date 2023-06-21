@@ -125,3 +125,24 @@ tr:hover {
     justify-content: center;
     align-items: center;
 }
+.addimage1{
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 40px;
+    width: 100px;
+    color: black;
+    background-color: #33FF00;
+    text-align: center;
+}
+.addimage {
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 40px;
+    width: 100px;
+    color: black;
+    background-color: #33FF00;
+    text-align: center;
+}
