@@ -51,8 +51,8 @@ session_start();
             </form>
         </div>
         <?php 
-        if(isset($_GET['room_numberid'])){
-            $id = $_GET['room_numberid'];
+        if(isset($_GET['roomid'])){
+            $id = $_GET['roomid'];
             $sql="SELECT * from rooms_tbl where room_number=$id";
             $result=mysqli_query($conn,$sql);
 

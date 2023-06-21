@@ -30,7 +30,7 @@ session_start();
                     <span>Experience hassle-free room booking today!</span>
                 </div>
                 <br>
-                <div><a href="#" class="green-button">Explore rooms</a></div>
+                <div><a href="rooms.php" class="green-button">Explore rooms</a></div>
         </div>
         <!-- search availability starts -->
         <div class="check-availability">
@@ -120,7 +120,7 @@ session_start();
                 </div>
                 <div class="room-section-images">
                     <?php
-                        $select_query="SELECT * from rooms_tbl";
+                        $select_query="SELECT * from rooms_tbl order by rand()";
                         $result=mysqli_query($conn,$select_query);
                         
                     ?>

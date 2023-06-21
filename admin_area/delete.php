@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['email'])){
+    header('location:login.php');
+}
+?>
+<?php
     include '../db/connection.php';
 
     if(isset($_GET['deleteid'])){

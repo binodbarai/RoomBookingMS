@@ -1,4 +1,11 @@
 
+<?php
+include('../db/connection.php');
+session_start();
+if(!isset($_SESSION['email'])){
+    header('location:login.php');
+}
+?>
 <h1>All Rooms</h1>
 <table id="datatableid" border="1" rules="all">
     <thead>

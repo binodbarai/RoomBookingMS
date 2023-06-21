@@ -76,7 +76,7 @@
         </div>
         <div class="all-rooms-container">
             <?php
-                $sql = "SELECT * FROM rooms_tbl";
+                $sql = "SELECT * FROM rooms_tbl order by rand()";
                 $result = mysqli_query($conn, $sql);
                 
             ?>
@@ -101,7 +101,7 @@
                         <h6>per night</h6>
                     </div>
                     <div class="book-now">
-                        <a href="book.php?room_numberid=<?php echo $row['room_number'];?>" class="book-now-button">Book Now</a>
+                        <a href="book.php?roomid=<?php echo $row['room_number'];?>" class="book-now-button">Book Now</a>
                     </div>
                 </div>
             </div>

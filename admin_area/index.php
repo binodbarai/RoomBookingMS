@@ -1,5 +1,9 @@
 <?php
 include('../db/connection.php');
+session_start();
+if(!isset($_SESSION['email'])){
+    header('location:login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +25,10 @@ include('../db/connection.php');
         <div class="header-links">
             <button><a href="addrooms.php" class="nav-link">Add rooms</a></button>
             <button><a href="index.php?showrooms" class="nav-link">Show All rooms</a></button>
-            <button><a href="" class="nav-link">Add Users</a></button>
             <button><a href="index.php?showalluser" class="nav-link">Show All users</a></button>
+            <button><a href="" class="nav-link">Gallery</a></button>
             <button><a href="" class="nav-link">Bookings</a></button>
-            <button><a href="" class="nav-link">Logout</a></button>
+            <button><a href="logout.php" class="nav-link">Logout</a></button>
         </div>
     </header>
     <div class="container">
