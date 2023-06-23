@@ -135,7 +135,7 @@ session_start();
                                         <h3>NRP <?php echo $row["price"]?></h3><h6>per night</h6>
                                     </div>
                                     <div class="button-popup">
-                                        <button class="green-button">Book Now</button>
+                                    <a href="book.php?roomid=<?php echo $row['room_number'];?>" class="green-button">Book Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -160,15 +160,14 @@ session_start();
             </div>
             <div class="gallery-section-images">
                 <div class="gallery-wrapper" id="gallery-wrapper">
-                    <img src="./images/rooms/gallery1.jpg" alt="#">
-                    <img src="./images/rooms/gallery2.jpg" alt="#">
-                    <img src="./images/rooms/gallery3.jpg" alt="#">
-                    <img src="./images/rooms/gallery4.jpg" alt="#">
-                    <img src="./images/rooms/gallery5.jpg" alt="#">
-                    <img src="./images/rooms/gallery6.jpg" alt="#">
-                    <img src="./images/rooms/gallery7.jpg" alt="#">
-                    <img src="./images/rooms/gallery8.jpg" alt="#">
-                    <img src="./images/rooms/gallery9.jpg" alt="#">
+                    <?php 
+                    $sql="SELECT * FROM galery_tbl";
+                    $result=mysqli_query($conn,$sql)
+                    ?>
+                    <?php while($row=mysqli_fetch_assoc($result)){?>
+                    <img src="./images/rooms/<?php echo $row['image']?>" alt="#">
+                    <?php 
+                    }?>
                 </div>
             </div>
         </div>

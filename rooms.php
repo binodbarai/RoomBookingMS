@@ -110,7 +110,7 @@
             }?>
         </div>
     </div>
-    <a href="" class="next-page-button">Next Page</a>
+    <a href="" class="next-page-button">Next Page &raquo;</a>
     <!-- footer section -->
     <?php include 'templates/footer.php'?>
 </body>

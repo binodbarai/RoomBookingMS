@@ -39,13 +39,13 @@
         <div class="max-width">
             <div class="logo"><img src="./images/icons/resort.png" alt=""><a href="#">Khumbila Hotel</a></div>
             <ul class="menu">
-                <li><a class="nav-buttons"href="#">Home</a></li>
+                <li><a class="nav-buttons"href="index.php#">Home</a></li>
                 <li><div class="nav-vertical"></div></li>
-                <li><a class="nav-buttons"href="#about">About</a></li>
+                <li><a class="nav-buttons"href="index.php#about">About</a></li>
                 <li><div class="nav-vertical"></div></li>
-                <li><a class="nav-buttons"href="#rooms">Rooms</a></li>
+                <li><a class="nav-buttons"href="index.php#rooms">Rooms</a></li>
                 <li><div class="nav-vertical"></div></li>
-                <li><a class="nav-buttons"href="#gallery">Gallery</a></li>
+                <li><a class="nav-buttons"href="index.php#gallery">Gallery</a></li>
                 <?php
                     if(isset($_SESSION['email'])){
                         echo '

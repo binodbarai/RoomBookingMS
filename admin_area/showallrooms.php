@@ -1,8 +1,7 @@
 
 <?php
 include('../db/connection.php');
-
-if(!isset($_SESSION['email'])){
+if(!isset($_SESSION['userLoggedIn'])){
     header('location:login.php');
 }
 ?>

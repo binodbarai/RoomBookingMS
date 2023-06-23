@@ -1,13 +1,13 @@
 <?php
     include '../db/connection.php';
     session_start();
-        if(isset($_POST['submit'])){
+        if(isset($_POST['userLoggedIn'])){
             
             $email= $_POST['email'];
             $password= $_POST['password'];
         
                 if($password=='admin' && $email== 'admin'){
-                    $_SESSION['email'] = '';
+                    $_SESSION['userLoggedIn'] = '';
                     header('location:index.php');
                 }
                 else{

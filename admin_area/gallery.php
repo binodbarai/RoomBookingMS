@@ -1,6 +1,6 @@
 <?php
 include('../db/connection.php');
-if(!isset($_SESSION['email'])){
+if(!isset($_SESSION['userLoggedIn'])){
     header('location:login.php');
 }
 ?>
@@ -23,7 +23,7 @@ if(!isset($_SESSION['email'])){
             while($row = mysqli_fetch_assoc($result)){
                 echo '
                 <tr>
-                    <td>'.$row['image'].'</td>
+                    <td><img src="uploadedImages/'.$row['image'].'" width="100"></td>
                     <td>
                         <div class="operation">
                             <a class="delete" href="delete_image.php?deleteid='.$row['id'].'">Delete</a>                            

@@ -1,7 +1,7 @@
 <?php
 include('../db/connection.php');
 session_start();
-if(!isset($_SESSION['email'])){
+if(!isset($_SESSION['userLoggedIn'])){
     header('location:login.php');
 }
 ?>
@@ -23,12 +23,12 @@ if(!isset($_SESSION['email'])){
     </nav>
     <header>
         <div class="header-links">
-            <button><a href="addrooms.php" class="nav-link">Add rooms</a></button>
-            <button><a href="index.php?showrooms" class="nav-link">Show All rooms</a></button>
-            <button><a href="index.php?showalluser" class="nav-link">Show All users</a></button>
-            <button><a href="index.php?gallery" class="nav-link">Gallery</a></button>
-            <button><a href="" class="nav-link">Bookings</a></button>
-            <button><a href="logout.php" class="nav-link">Logout</a></button>
+            <a href="addrooms.php" class="nav-link"><button>Add rooms</button></a>
+            <a href="index.php?showrooms" class="nav-link"><button>Show all rooms</button></a>
+            <a href="index.php?showalluser" class="nav-link"><button>Show all users</button></a>
+            <a href="index.php?gallery" class="nav-link"><button>Gallery</button></a>
+            <a href="" class="nav-link"><button>Bookings</button></a>
+            <a href="logout.php" class="nav-link"><button>Logout</button></a>
         </div>
     </header>
     <div class="container">
