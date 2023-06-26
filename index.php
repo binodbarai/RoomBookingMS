@@ -34,7 +34,7 @@ session_start();
         </div>
         <!-- search availability starts -->
         <div class="check-availability">
-            <form action="#">
+            <form action="rooms.php">
                 <div class="top">
                     <div class="inputs">
                         <label for="check-in">Check In</label>
@@ -69,7 +69,7 @@ session_start();
                         </select>
                     </div>
                     <div class="button-div">
-                        <button class="check-availability-button">Check Availability</button>
+                        <input type="submit" class="check-availability-button" name="check-availability">
                     </div>
                 </div>
             </form>
@@ -120,36 +120,26 @@ session_start();
                 </div>
                 <div class="room-section-images">
                     <?php
-                        $select_query="SELECT * from rooms_tbl order by rand()";
-                        $result=mysqli_query($conn,$select_query);
-                        
+                        $select_query="SELECT * from rooms_tbl order by rand() LIMIT 0,6";
+                        $result=mysqli_query($conn,$select_query);  
                     ?>
-                    <?php $count=0;?>
-                        <?php while($row=mysqli_fetch_assoc($result) ){?>
-                            <div class="room-section-images-container">
-                                <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/<?php echo $row["room_image"]?>');">
-                                    <div class="room-type">
-                                        <h3><?php echo $row["room_type"]?></h3><h6><?php echo $row["room_status"]?> room</h6>
-                                    </div>
-                                    <div class="room-price">
-                                        <h3>NRP <?php echo $row["price"]?></h3><h6>per night</h6>
-                                    </div>
-                                    <div class="button-popup">
-                                    <a href="book.php?roomid=<?php echo $row['room_number'];?>" class="green-button">Book Now</a>
-                                    </div>
+                    <?php while($row=mysqli_fetch_assoc($result) ){?>
+                        <div class="room-section-images-container">
+                            <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/<?php echo $row["room_image"]?>');">
+                                <div class="room-type">
+                                    <h3><?php echo $row["room_type"]?></h3><h6><?php echo $row["room_status"]?> room</h6>
+                                </div>
+                                <div class="room-price">
+                                    <h3>NRP <?php echo $row["price"]?></h3><h6>per night</h6>
+                                </div>
+                                <div class="button-popup">
+                                <a href="book.php?roomid=<?php echo $row['room_number'];?>" class="green-button">Book Now</a>
                                 </div>
                             </div>
-                            <?php $count++;?>
-                            <?php
-                                if($count>5){
-                                    break;
-                                }
-                            ?>
-                        <?php
-                        }?>       
+                        </div>  
+                    <?php
+                    }?>       
                 </div>
-                        
-                
                 <div class="rooms-button"><a href="rooms.php" class="green-buttons">View all rooms</a></div>
             </div>
         </div>

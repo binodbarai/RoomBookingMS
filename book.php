@@ -26,7 +26,7 @@ session_start();
             <h2>Enter your details</h2>
             <br>
             <h6>We will use this information to book your room</h6>
-            <form action="" class="booking-details-form">
+            <form action="payment.php" class="booking-details-form">
                 <div class="left">
                     <div>
                         <label for="fullname">Fullname</label>
@@ -76,7 +76,7 @@ session_start();
         </div>
         <?php 
         }?>
-    </div>
+        </div>
 
     <!-- footer -->
     <?php include 'templates/footer.php'?>

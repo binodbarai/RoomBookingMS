@@ -17,6 +17,12 @@ function toggleMenu(){
     submenu.classList.toggle("active"); 
 }
 function toggleLogin(){
-    let submenu = document.querySelector(".container");
-    submenu.classList.toggle("active");
+    var value = '<?php echo isset($_SESSION["email"]) ? "set" : "not set"; ?>';
+    if (value === 'set') {
+        window.location.href = "book.php?roomid=<?php echo $row['room_number'];?>";
+    } else {
+        let submenu = document.querySelector(".container");
+        submenu.classList.toggle("active");
+    }
 }
+

@@ -2,6 +2,7 @@
     include 'db/connection.php';
     session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,13 +67,6 @@
     <div class="all-rooms">
         <div class="all-rooms-heading">
             <h1>All Rooms</h1>
-            <form action="" class="sort-by">
-                <label for="Sort by">Sort by </label>
-                <select name="sort-type" class="sort-type"id="">
-                    <option value="price">Price</option selected>
-                    <option value="capacity">Capacity</option>
-                </select>
-            </form>
         </div>
         <div class="all-rooms-container">
             <?php
@@ -101,7 +95,7 @@
                         <h6>per night</h6>
                     </div>
                     <div class="book-now">
-                        <a href="book.php?roomid=<?php echo $row['room_number'];?>" class="book-now-button">Book Now</a>
+                    <button onclick="toggleLogin()" class="green-button">Book Now</button>
                     </div>
                 </div>
             </div>

@@ -61,6 +61,20 @@
     z-index: 9;
     font-family: 'Poppins', sans-serif;
 }
+.cross {
+    position: absolute;
+    text-decoration: none;
+    top: 1%;
+    right: 0%;
+    width: 40px;
+    line-height: 50px;
+    font-size: 40px;
+    font-weight: lighter;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #000000;
+
+}
 .cross a{
     position: absolute;
     text-decoration: none;
@@ -80,7 +94,10 @@
     color: #f00;
     margin-top: 10px;
 }
-.cross a:hover{
+.cross:hover {
+    color: #33FF00;
+}
+.cross a:hover {
     color: #33FF00;
 }
 .inputbox{

@@ -43,7 +43,7 @@
 <body>
     <form action="" method="post">
         <div class="container <?php if($error){echo "active";}?>">
-            <span class="cross"><a href="index.php">&times;</a></span>
+            <span class="cross" onclick="toggleLogin()">&times;</span>
             <h1>Login</h1>
             <div class="inputbox">
                 <?php if(isset($error)) {?>
