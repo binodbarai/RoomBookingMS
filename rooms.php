@@ -95,7 +95,11 @@
                         <h6>per night</h6>
                     </div>
                     <div class="book-now">
-                    <button onclick="toggleLogin()" class="green-button">Book Now</button>
+                    <?php if(isset($_SESSION['email'])) { ?>
+                        <a href="book.php?roomid=<?php echo $row['room_number']; ?>" class="green-button">Book Now</a>
+                    <?php } else { ?>
+                        <button onclick="toggleLogin()" class="green-button">Book Now</button>
+                    <?php } ?>
                     </div>
                 </div>
             </div>

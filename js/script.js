@@ -16,13 +16,12 @@ function toggleMenu(){
     let submenu = document.querySelector(".profile-menu-wrap");
     submenu.classList.toggle("active"); 
 }
-function toggleLogin(){
-    var value = '<?php echo isset($_SESSION["email"]) ? "set" : "not set"; ?>';
-    if (value === 'set') {
-        window.location.href = "book.php?roomid=<?php echo $row['room_number'];?>";
-    } else {
-        let submenu = document.querySelector(".container");
-        submenu.classList.toggle("active");
-    }
+function toggleLogin() {
+    let loginContainer = document.querySelector(".container");
+    let overlay = document.querySelector(".overlay");
+    let body = document.querySelector("body");
+    loginContainer.classList.toggle("active");
+    overlay.classList.toggle("active");
+    body.classList.toggle("blurred-background"); 
 }
 

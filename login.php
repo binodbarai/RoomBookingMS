@@ -16,6 +16,14 @@
                 if($password==$decrypted_password){
                     header('location:index.php');
                     $_SESSION['email'] = $row['email'];
+
+                    $userId = $row['id']; 
+                    $loginDate = date("Y-m-d H:i:s"); // Current login date and time
+
+                    // Insert login details into loginHistory_table
+                    $insertQuery = "INSERT INTO loginHistory_tbl (login_date, user_id)
+                                    VALUES ('$loginDate', '$userId')";
+                    $result = mysqli_query($conn, $insertQuery);
                 }
                 else{
                     $error="Incorrect password.";  
@@ -38,9 +46,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/login-register.css">
-
+    
 </head>
 <body>
+    <div class="overlay" onclick="toggleLogin()"></div>
     <form action="" method="post">
         <div class="container <?php if($error){echo "active";}?>">
             <span class="cross" onclick="toggleLogin()">&times;</span>
