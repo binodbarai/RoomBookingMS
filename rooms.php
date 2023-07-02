@@ -70,7 +70,8 @@
         </div>
         <div class="all-rooms-container">
             <?php
-                $sql = "SELECT * FROM rooms_tbl order by rand()";
+            
+                $sql = "SELECT * FROM rooms_tbl";
                 $result = mysqli_query($conn, $sql);
                 
             ?>
@@ -96,7 +97,7 @@
                     </div>
                     <div class="book-now">
                     <?php if(isset($_SESSION['email'])) { ?>
-                        <a href="book.php?roomid=<?php echo $row['room_number']; ?>" class="green-button">Book Now</a>
+                        <a href="book.php?roomid=<?php echo $row['room_number']; ?>&userid=<?php echo $userid; ?>" class="green-button">Book Now</a>
                     <?php } else { ?>
                         <button onclick="toggleLogin()" class="green-button">Book Now</button>
                     <?php } ?>
@@ -108,6 +109,7 @@
             }?>
         </div>
     </div>
+    
     <a href="" class="next-page-button">Next Page &raquo;</a>
     <!-- footer section -->
     <?php include 'templates/footer.php'?>

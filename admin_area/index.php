@@ -27,7 +27,7 @@ if(!isset($_SESSION['userLoggedIn'])){
             <a href="index.php?showrooms" class="nav-link"><button>Show all rooms</button></a>
             <a href="index.php?showalluser" class="nav-link"><button>Show all users</button></a>
             <a href="index.php?gallery" class="nav-link"><button>Gallery</button></a>
-            <a href="" class="nav-link"><button>Bookings</button></a>
+            <a href="index.php?bookings" class="nav-link"><button>Bookings</button></a>
             <a href="logout.php" class="nav-link"><button>Logout</button></a>
         </div>
     </header>
@@ -42,6 +42,9 @@ if(!isset($_SESSION['userLoggedIn'])){
         if(isset($_GET['gallery'])){
             include 'gallery.php';
         }
+        if(isset($_GET['bookings'])){
+            include 'bookings.php';
+        }
         ?>
 
     </div>
@@ -52,5 +55,11 @@ if(!isset($_SESSION['userLoggedIn'])){
             $('#datatableid').DataTable();
         });
     </script>
+    <style>
+        #datatableid{
+            padding-top:20px !important;
+            border:0px;
+        }
+    </style>
 </body>
 </html>

@@ -786,7 +786,7 @@ header ul{
     font-weight: bold;
     display: block;
     padding: 20px 10px;
-    width: 150px;
+    width: 200px;
     margin-top: 20px;
     margin-left: 20px;
     border: 1px solid #DEDEDE;
@@ -795,9 +795,12 @@ header ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 } 
-.payment-details-left-bottom .payment-button a{
+.payment-details-left-bottom .payment-button .booknow-payment{
     display: block;
+    width: 300px;
+    border: none;
     margin-top: 30px;
     padding: 8px 100px;
     color: #EEFFEA;

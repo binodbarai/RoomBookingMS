@@ -19,64 +19,77 @@ session_start();
 </head>
 <body>
     <!-- header -->
-    <?php include 'templates/header.php'?>
+    <?php include 'templates/header.php' ?>
 
-    <div class="booking-details">
-        <div class="booking-details-left">
-            <h2>Enter your details</h2>
-            <br>
-            <h6>We will use this information to book your room</h6>
-            <form action="payment.php" class="booking-details-form">
-                <div class="left">
-                    <div>
-                        <label for="fullname">Fullname</label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label for="phonenumber">Phone Number</label>
-                        <input type="number">
-                    </div>
-                </div>
-                <div class="right">
-                    <div>
-                        <label for="email">E-mail</label>
-                        <input type="email">
-                    </div>
-                    <div>
-                        <br>
-                        <label for="phonenumber"></label>
-                        <input type="submit" value="Continue">
-                    </div>
-                </div>
-            </form>
-        </div>
-        <?php 
-        if(isset($_GET['roomid'])){
-            $id = $_GET['roomid'];
-            $sql="SELECT * from rooms_tbl where room_number=$id";
-            $result=mysqli_query($conn,$sql);
+<?php
+if (isset($_GET['userid'])) {
+    $userid = $_GET['userid'];
+    $query = "SELECT * FROM user_tbl where id=$userid";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['username'];
+    $email = $row['email'];
+    $phone = $row['phone'];
+}
 
-        }
-        ?>
-        <?php while($row=mysqli_fetch_assoc($result)){?>
+if (isset($_GET['roomid'])) {
+    $roomid = $_GET['roomid'];
+    $room_query = "SELECT * from rooms_tbl where room_number=$roomid";
+    $room_result = mysqli_query($conn, $room_query);
+}
+?>
+
+<div class="booking-details">
+    <div class="booking-details-left">
+        <h2>Your details</h2>
+        <br>
+        <h6>We will use this information to book your room</h6>
+        <form action="payment.php" class="booking-details-form" method="get">
+            <div class="left">
+                <div>
+                    <label for="fullname">Fullname</label>
+                    <input type="text" name="fullname" value="<?php echo $name; ?>">
+                </div>
+                <div>
+                    <label for="phonenumber">Phone Number</label>
+                    <input type="number" name="phonenumber" value="<?php echo $phone; ?>">
+                </div>
+                <input type="hidden" name="room_number" value="<?php echo $roomid; ?>">
+                <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+            </div>
+            <div class="right">
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" value="<?php echo $email; ?>">
+                </div>
+                <div>
+                    <br>
+                    <label for="phonenumber"></label>
+                    <input type="submit" value="Continue">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <?php while ($room_row = mysqli_fetch_assoc($room_result)) { ?>
         <div class="booking-details-right">
-            <img src="./images/rooms/<?php echo $row['room_image'];?>" alt=""><br>
-            <h2><?php echo $row['room_type'];?></h2>
+            <img src="./images/rooms/<?php echo $room_row['room_image']; ?>" alt=""><br>
+            <h2><?php echo $room_row['room_type']; ?></h2>
             <div class="services-box">
                 <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
                 <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
                 <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
             </div>
-            <div class="price-box"> 
+            <div class="price-box">
                 <h3>Payable Amount</h3>
                 <div>
-                <h2>Rs.<?php echo $row['price'];?></h2><span>per night</span>
+                    <h2>Rs.<?php echo $room_row['price']; ?></h2><span>per night</span>
                 </div>
             </div>
         </div>
-        <?php 
-        }?>
-        </div>
+    <?php } ?>
+</div>
+
 
     <!-- footer -->
     <?php include 'templates/footer.php'?>

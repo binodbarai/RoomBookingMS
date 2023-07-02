@@ -1,4 +1,11 @@
-
+<?php 
+if(isset($_GET['userid'])){
+$userid=$_GET['userid'];
+$query="SELECT * from user_tbl where id=$userid";
+$result=mysqli_query($conn,$query);
+$row=mysqli_fetch_assoc($result);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,9 +44,9 @@
     <!-- Navigation bar -->
     <nav class="navbar">
         <div class="max-width">
-            <div class="logo"><img src="./images/icons/resort.png" alt=""><a href="#">Khumbila Hotel</a></div>
+            <div class="logo"><img src="./images/icons/resort.png" alt=""><a href="index.php">Khumbila Hotel</a></div>
             <ul class="menu">
-                <li><a class="nav-buttons"href="index.php#">Home</a></li>
+                <li><a class="nav-buttons"href="index.php?userid=<?php echo $row['id']?>">Home</a></li>
                 <li><div class="nav-vertical"></div></li>
                 <li><a class="nav-buttons"href="index.php#about">About</a></li>
                 <li><div class="nav-vertical"></div></li>
@@ -48,15 +55,20 @@
                 <li><a class="nav-buttons"href="index.php#gallery">Gallery</a></li>
                 <?php
                     if(isset($_SESSION['email'])){
+                        if(isset($_GET['userid'])){
                         echo '
                         <li><div><img width="35px" src="./images/icons/profile.png" alt="" onclick="toggleMenu()"></div></li>
-                        <li><a href="../project/yourbookings.php" class="green-button">Your Bookings</a></li>';
+                        <li><a href="../project/yourbookings.php?userid='.$row['id'].'" class="green-button">Your Bookings</a></li>';
+                        }
+                        else{
+                            echo '<li><div><button id="login-button" onclick="toggleLogin()" class="green-button">Login</button></div></li>
+                            <li><a href="../project/rooms.php" class="green-button">Book now</a></li>';
+                        }
                     }
                     else{
                         echo '<li><div><button id="login-button" onclick="toggleLogin()" class="green-button">Login</button></div></li>
                         <li><a href="../project/rooms.php" class="green-button">Book now</a></li>';
                     }
-                    
                 ?>
                 
                 
@@ -66,21 +78,24 @@
             include 'login.php';
         ?>
         
-        
+        <?php if(isset($_GET['userid'])){?>
         <div class="profile-menu-wrap">
             <div class="profile-menu">
                 <div class="user-info">
                     <img width="35px" src="./images/icons/profile.png" alt="">
-                    <h3>Bharat Deuba</h3>
+                    <h3><?php echo $row['username'];?></h3>
                 </div>
                 <hr>
                 <a href="logout.php">
                     <img src="./images/icons/logout.png" alt="">
                     <p>Logout</p>
                 </a>
+                
 
             </div>
         </div>
+        <?php 
+    }?>
     </nav>
 </body>
 </html>

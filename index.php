@@ -1,6 +1,7 @@
 <?php
 include 'db/connection.php';
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/script.js"></script>
+    
     
 </head>
 <body>
@@ -30,7 +31,14 @@ session_start();
                     <span>Experience hassle-free room booking today!</span>
                 </div>
                 <br>
-                <div><a href="rooms.php" class="green-button">Explore rooms</a></div>
+                <?php
+                if (isset($_GET['userid'])) {
+                    $userid = $_GET['userid'];
+                    echo '<div><a href="rooms.php?userid=' . $userid . '" class="green-button">Explore rooms</a></div>';
+                } else {
+                    echo '<div><a href="rooms.php" class="green-button">Explore rooms</a></div>';
+                }
+                ?>
         </div>
         <!-- search availability starts -->
         <div class="check-availability">
@@ -133,14 +141,22 @@ session_start();
                                     <h3>NRP <?php echo $row["price"]?></h3><h6>per night</h6>
                                 </div>
                                 <div class="button-popup">
-                                <a href="book.php?roomid=<?php echo $row['room_number'];?>" class="green-button">Book Now</a>
+                                <a href="book.php?roomid=<?php echo $row['room_number'];?>&userid=<?php echo $userid; ?>" class="green-button">Book Now</a>
                                 </div>
                             </div>
                         </div>  
                     <?php
                     }?>       
                 </div>
-                <div class="rooms-button"><a href="rooms.php" class="green-buttons">View all rooms</a></div>
+                <?php
+                if (isset($_GET['userid'])) {
+                    $userid = $_GET['userid'];
+                    echo '<div class="rooms-button"><a href="rooms.php?userid=' . $userid . '" class="green-buttons">View all rooms</a></div>';
+                } else {
+                    echo '<div class="rooms-button"><a href="rooms.php" class="green-buttons">View all rooms</a></div>';
+                }
+                ?>
+                
             </div>
         </div>
         <div class="gallery-section" id="gallery">
@@ -165,5 +181,6 @@ session_start();
 
     <!-- footer section starts -->
     <?php include 'templates/footer.php';?>
+    <script src="./js/script.js"></script>
 </body>
 </html>

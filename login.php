@@ -13,8 +13,8 @@
                 $encrypt_key="anything";
                 $decrypted_password=openssl_decrypt($row['password'],$ciphering_value,$encrypt_key);
 
-                if($password==$decrypted_password){
-                    header('location:index.php');
+                if($password==$decrypted_password){ 
+                    header("location:index.php?userid=".$row['id']."");
                     $_SESSION['email'] = $row['email'];
 
                     $userId = $row['id']; 
@@ -49,7 +49,7 @@
     
 </head>
 <body>
-    <div class="overlay" onclick="toggleLogin()"></div>
+    <div class="overlay <?php if($error){echo "active";}?>" onclick="toggleLogin()"></div>
     <form action="" method="post">
         <div class="container <?php if($error){echo "active";}?>">
             <span class="cross" onclick="toggleLogin()">&times;</span>

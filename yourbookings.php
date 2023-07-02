@@ -1,6 +1,12 @@
 <?php
 include 'db/connection.php';
 session_start();
+if(isset($_GET['userid'])){
+    $userid=$_GET['userid'];
+    $query="SELECT * from user_tbl where id=$userid";
+    $result=mysqli_query($conn,$query);
+    $row=mysqli_fetch_assoc($result); 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
