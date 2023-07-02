@@ -1,11 +1,4 @@
-<?php 
-if(isset($_GET['userid'])){
-$userid=$_GET['userid'];
-$query="SELECT * from user_tbl where id=$userid";
-$result=mysqli_query($conn,$query);
-$row=mysqli_fetch_assoc($result);
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,19 +39,20 @@ $row=mysqli_fetch_assoc($result);
         <div class="max-width">
             <div class="logo"><img src="./images/icons/resort.png" alt=""><a href="index.php">Khumbila Hotel</a></div>
             <ul class="menu">
-                <li><a class="nav-buttons"href="index.php?userid=<?php echo $row['id']?>">Home</a></li>
+                <li><a class="nav-buttons"href="index.php?userid=<?php  if(isset($_SESSION['id'])){echo $_SESSION['id'];}?>">Home</a></li>
                 <li><div class="nav-vertical"></div></li>
-                <li><a class="nav-buttons"href="index.php#about">About</a></li>
+                <li><a class="nav-buttons"href="index.php?userid=<?php  if(isset($_SESSION['id'])){echo $_SESSION['id'];}?>#about">About</a></li>
                 <li><div class="nav-vertical"></div></li>
-                <li><a class="nav-buttons"href="index.php#rooms">Rooms</a></li>
+                <li><a class="nav-buttons"href="index.php?userid=<?php  if(isset($_SESSION['id'])){echo $_SESSION['id'];}?>#rooms">Rooms</a></li>
                 <li><div class="nav-vertical"></div></li>
-                <li><a class="nav-buttons"href="index.php#gallery">Gallery</a></li>
+                <li><a class="nav-buttons"href="index.php?userid=<?php  if(isset($_SESSION['id'])){echo $_SESSION['id'];}?>#gallery">Gallery</a></li>
                 <?php
+                 
                     if(isset($_SESSION['email'])){
-                        if(isset($_GET['userid'])){
+                        if(isset($_SESSION['id'])){
                         echo '
                         <li><div><img width="35px" src="./images/icons/profile.png" alt="" onclick="toggleMenu()"></div></li>
-                        <li><a href="../project/yourbookings.php?userid='.$row['id'].'" class="green-button">Your Bookings</a></li>';
+                        <li><a href="../project/yourbookings.php?userid='.$_SESSION['id'].'" class="green-button">Your Bookings</a></li>';
                         }
                         else{
                             echo '<li><div><button id="login-button" onclick="toggleLogin()" class="green-button">Login</button></div></li>
@@ -78,22 +72,31 @@ $row=mysqli_fetch_assoc($result);
             include 'login.php';
         ?>
         
-        <?php if(isset($_GET['userid'])){?>
-        <div class="profile-menu-wrap">
-            <div class="profile-menu">
-                <div class="user-info">
-                    <img width="35px" src="./images/icons/profile.png" alt="">
-                    <h3><?php echo $row['username'];?></h3>
-                </div>
-                <hr>
-                <a href="logout.php">
-                    <img src="./images/icons/logout.png" alt="">
-                    <p>Logout</p>
-                </a>
-                
+        <?php if(isset($_SESSION['id'])){?>
+            <?php 
+            include 'db/connection.php';
+            $userid = $_SESSION['id'];
+            $query = "SELECT * FROM user_tbl WHERE id=$userid";
+            $result = mysqli_query($conn, $query);
+            $row = mysqli_fetch_assoc($result);
+            
+            ?>
 
+            <div class="profile-menu-wrap">
+                <div class="profile-menu">
+                    <div class="user-info">
+                        <img width="35px" src="./images/icons/profile.png" alt="">
+                        <h3><?php echo $row['username'];?></h3>
+                    </div>
+                    <hr>
+                    <a href="logout.php">
+                        <img src="./images/icons/logout.png" alt="">
+                        <p>Logout</p>
+                    </a>
+                    
+
+                </div>
             </div>
-        </div>
         <?php 
     }?>
     </nav>

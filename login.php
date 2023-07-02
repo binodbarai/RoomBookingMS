@@ -16,6 +16,7 @@
                 if($password==$decrypted_password){ 
                     header("location:index.php?userid=".$row['id']."");
                     $_SESSION['email'] = $row['email'];
+                    $_SESSION['id'] = $row['id'];
 
                     $userId = $row['id']; 
                     $loginDate = date("Y-m-d H:i:s"); // Current login date and time

@@ -26,7 +26,6 @@ session_start();
         $phonenumber=$_GET['phonenumber'];
         $email=$_GET['email'];
         $roomNumber=$_GET['room_number'];
-        echo $fullname;
     }?>
     
 
@@ -85,19 +84,19 @@ session_start();
                 $query = "INSERT INTO bookings (booking_id, fullname, email, phone, room_number) VALUES ('$bookingId', '$fullname', '$email', '$phonenumber', '$roomNumber')";
                 
                 $result=mysqli_query($conn, $query);
-                if($result){
+                if ($result) {
                     echo "<script>
-                    alert('Your bookings has been placed ');
-                    window.location.href='index.php';
+                    alert('Your booking has been placed');
+                    window.location.href='index.php?userid=" . $SESSION['id'] . "';
                     </script>";
-                    
-                }
-                else{
+                } else {
                     echo "<script>
                     alert('Cannot insert data');
                     window.location.href='payment.php';
                     </script>";
                 }
+                
+                
             }
             
             // Function to generate a random booking ID
