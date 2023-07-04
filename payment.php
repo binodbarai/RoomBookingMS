@@ -26,6 +26,8 @@ session_start();
         $phonenumber=$_GET['phonenumber'];
         $email=$_GET['email'];
         $roomNumber=$_GET['room_number'];
+        $userid=$_GET['userid'];
+        $price=$_GET['price'];
     }?>
     
 
@@ -60,9 +62,11 @@ session_start();
                         <div class="safe-message"><img src="./images/icons/secure-payment.png" alt=""><span>100% safe and secure payment</span></div>
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                             <input type="hidden" name="fullname" value="<?php echo $fullname; ?>">
+                            <input type="hidden" name="userid" value="<?php echo $userid; ?>">
                             <input type="hidden" name="email" value="<?php echo $email; ?>">
                             <input type="hidden" name="phonenumber" value="<?php echo $phonenumber; ?>">
                             <input type="hidden" name="room_number" value="<?php echo $roomNumber; ?>">
+                            <input type="hidden" name="price" value="<?php echo $price; ?>">
                             <input class="booknow-payment" type="submit" value="Book Now">
                         </form>
                     </div>
@@ -75,18 +79,20 @@ session_start();
                 $phonenumber=$_POST['phonenumber'];
                 $email=$_POST['email'];
                 $roomNumber = $_POST['room_number'];
+                $userid=$_POST['userid'];
+                $price=$_POST['price'];
                 
                 // Generate a random booking ID
                 $bookingId = random_generator();
                 
             
                 // Insert the booking details into the database
-                $query = "INSERT INTO bookings (booking_id, fullname, email, phone, room_number) VALUES ('$bookingId', '$fullname', '$email', '$phonenumber', '$roomNumber')";
+                $query = "INSERT INTO bookings (booking_id,user_id,fullname, email, phone, room_number,price) VALUES ('$bookingId','$userid', '$fullname', '$email', '$phonenumber', '$roomNumber','$price')";
                 
                 $result=mysqli_query($conn, $query);
                 if ($result) {
                     echo "<script>
-                    alert('Your booking has been placed');
+                    alert('Your booking has been placed with booking id=".$bookingId."');
                     window.location.href='index.php?userid=" . $SESSION['id'] . "';
                     </script>";
                 } else {

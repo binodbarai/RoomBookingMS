@@ -24,6 +24,7 @@ session_start();
 <?php
 if (isset($_GET['userid'])) {
     $userid = $_GET['userid'];
+    $price=$_GET['price'];
     $query = "SELECT * FROM user_tbl where id=$userid";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
@@ -36,6 +37,8 @@ if (isset($_GET['roomid'])) {
     $roomid = $_GET['roomid'];
     $room_query = "SELECT * from rooms_tbl where room_number=$roomid";
     $room_result = mysqli_query($conn, $room_query);
+    
+    
 }
 ?>
 
@@ -56,6 +59,7 @@ if (isset($_GET['roomid'])) {
                 </div>
                 <input type="hidden" name="room_number" value="<?php echo $roomid; ?>">
                 <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+                <input type="hidden" name="price" value="<?php echo $price; ?>">
             </div>
             <div class="right">
                 <div>

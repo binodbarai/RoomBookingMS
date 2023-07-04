@@ -1,6 +1,6 @@
-<?php
-    include 'db/connection.php';
-    session_start();
+<?php 
+include 'db/connection.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -65,53 +65,96 @@
     </div>
     <!-- all rooms section started -->
     <div class="all-rooms">
-        <div class="all-rooms-heading">
-            <h1>All Rooms</h1>
-        </div>
-        <div class="all-rooms-container">
-            <?php
-            
-                $sql = "SELECT * FROM rooms_tbl";
-                $result = mysqli_query($conn, $sql);
-                
-            ?>
-            <?php while($row = mysqli_fetch_assoc($result)){?>
-            <div class="room-card">
-                <div class="room-card-image">
-                    <div class="image">
-                        <a href=""><img src="./images/rooms/<?php echo $row['room_image'];?>" alt=""></a>
-                    </div>
-                    <div class="room-card-details">
-                    <h2><?php echo $row['room_type'];?></h2>
-                    <div class="services-box">
-                        <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
-                        <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
-                        <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
-                    </div>
-                </div>
-                </div>
-                <div class="room-card-price">
-                    <div class="price">
-                        <h2>Rs.<?php echo $row['price'];?></h2>
-                        <h6>per night</h6>
-                    </div>
-                    <div class="book-now">
-                    <?php if(isset($_SESSION['email'])) { ?>
-                        <a href="book.php?roomid=<?php echo $row['room_number']; ?>&userid=<?php echo $userid; ?>" class="green-button">Book Now</a>
-                    <?php } else { ?>
-                        <button onclick="toggleLogin()" class="green-button">Book Now</button>
-                    <?php } ?>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <?php 
-            }?>
+    <div class="all-rooms-heading">
+        <h1>All Rooms</h1>
+        <div>
+            <form method="post" action="" id="sort-form">
+            <label for="sorting_criteria">Sort By:</label>
+            <select name="sorting_criteria" class="sort-type" id="sorting_criteria">
+                <option value="rating" selected>Rating</option>
+                <option value="price">Price</option>
+            </select>
+            <input type="submit" class="sort-button" value="Sort">
+            </form>
         </div>
     </div>
+    <div class="all-rooms-container" id="sorted_results">
+        <?php
+            
+        // Function to retrieve and display the sorted room list
+        function getSortedRooms($sortingCriteria) {
+            global $conn;
+        
+            // Construct the SQL query based on the selected sorting criterion
+            $sql = "SELECT * FROM rooms_tbl ORDER BY ";
+        
+            if ($sortingCriteria == 'rating') {
+                $sql .= "room_type DESC";
+            } elseif ($sortingCriteria == 'price') {
+                $sql .= "price ASC";
+            }
+        
+            // Execute the query
+            $result = mysqli_query($conn, $sql);
+        
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="room-card">
+                        <div class="room-card-image">
+                            <div class="image">
+                                <a href=""><img src="./images/rooms/<?php echo $row['room_image']; ?>" alt=""></a>
+                            </div>
+                            <div class="room-card-details">
+                                <h2><?php echo $row['room_type']; ?></h2>
+                                <div class="services-box">
+                                    <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
+                                    <div class="service-box-icons"><img src="./images/icons/parking.png" alt=""><span>Parking Available</span><br></div>
+                                    <div class="service-box-icons"><img src="./images/icons/wifi-signal.png" alt=""><span>Free Wi-fi</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="room-card-price">
+                            <div class="price">
+                                <h2>Rs.<?php echo $row['price']; ?></h2>
+                                <h6>per night</h6>
+                            </div>
+                            <div class="book-now">
+                                <?php if (isset($_SESSION['email'])) { ?>
+                                    <a href="book.php?roomid=<?php echo $row['room_number']; ?>&userid=<?php echo $userid; ?>&price=<?php echo $row['price']; ?>" class="green-button">Book Now</a>
+                                <?php } else { ?>
+                                    <button onclick="toggleLogin()" class="green-button">Book Now</button>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <?php
+                }
+            } else {
+                echo "Error executing the query: " . mysqli_error($conn);
+            }
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $sortingCriteria = $_POST['sorting_criteria'];
+        
+            // Call the function to retrieve and display the sorted room list
+            getSortedRooms($sortingCriteria);
+        } else {
+            // Default sorting criteria when the page loads initially
+            $defaultSortingCriteria = 'rating';
+        
+            // Call the function to retrieve and display the sorted room list with default sorting criteria
+            getSortedRooms($defaultSortingCriteria);
+        }
+        ?>
+    </div>
+</div>
+
     
     <a href="" class="next-page-button">Next Page &raquo;</a>
     <!-- footer section -->
     <?php include 'templates/footer.php'?>
+    
 </body>
 </html>

@@ -143,7 +143,11 @@ session_start();
                                     <h3>NRP <?php echo $row["price"]?></h3><h6>per night</h6>
                                 </div>
                                 <div class="button-popup">
-                                <a href="book.php?roomid=<?php echo $row['room_number'];?>&userid=<?php echo $userid; ?>" class="green-button">Book Now</a>
+                                <?php if(isset($_SESSION['email'])) { ?>
+                                <a href="book.php?roomid=<?php echo $row['room_number']; ?>&userid=<?php echo $userid; ?>&price=<?php echo $row['price']; ?>" class="green-button">Book Now</a>
+                                <?php } else { ?>
+                                    <button onclick="toggleLogin()" class="green-button">Book Now</button>
+                                <?php } ?>
                                 </div>
                             </div>
                         </div>  

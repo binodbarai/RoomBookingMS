@@ -35,7 +35,6 @@ if(!isset($_SESSION['userLoggedIn'])){
                         <td>'.$row['phone'].'</td>
                         <td>'.$row['room_number'].'</td>
                         <td>'.$row['price'].'</td>
-                        
                     </tr>
                     ';
                 }
