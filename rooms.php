@@ -20,6 +20,9 @@ session_start();
 <body>
     <!-- header section -->
     <?php include 'templates/header.php'?>
+    <?php 
+
+    ?>
     
     <!-- check availability -->
     <div class="check-availability-after">
@@ -71,7 +74,7 @@ session_start();
             <form method="post" action="" id="sort-form">
             <label for="sorting_criteria">Sort By:</label>
             <select name="sorting_criteria" class="sort-type" id="sorting_criteria">
-                <option value="rating" selected>Rating</option>
+                <option value="name" selected>Name</option>
                 <option value="price">Price</option>
             </select>
             <input type="submit" class="sort-button" value="Sort">
@@ -88,8 +91,8 @@ session_start();
             // Construct the SQL query based on the selected sorting criterion
             $sql = "SELECT * FROM rooms_tbl ORDER BY ";
         
-            if ($sortingCriteria == 'rating') {
-                $sql .= "room_type DESC";
+            if ($sortingCriteria == 'name') {
+                $sql .= "room_type ASC";
             } elseif ($sortingCriteria == 'price') {
                 $sql .= "price ASC";
             }
@@ -120,7 +123,8 @@ session_start();
                                 <h6>per night</h6>
                             </div>
                             <div class="book-now">
-                                <?php if (isset($_SESSION['email'])) { ?>
+                                <?php if (isset($_SESSION['email']) && isset($_GET['userid'])) { $userid=$_GET['userid']; ?>
+                                
                                     <a href="book.php?roomid=<?php echo $row['room_number']; ?>&userid=<?php echo $userid; ?>&price=<?php echo $row['price']; ?>" class="green-button">Book Now</a>
                                 <?php } else { ?>
                                     <button onclick="toggleLogin()" class="green-button">Book Now</button>
@@ -142,7 +146,7 @@ session_start();
             getSortedRooms($sortingCriteria);
         } else {
             // Default sorting criteria when the page loads initially
-            $defaultSortingCriteria = 'rating';
+            $defaultSortingCriteria = 'name';
         
             // Call the function to retrieve and display the sorted room list with default sorting criteria
             getSortedRooms($defaultSortingCriteria);
@@ -152,7 +156,7 @@ session_start();
 </div>
 
     
-    <a href="" class="next-page-button">Next Page &raquo;</a>
+    <!-- <a href="" class="next-page-button">Next Page &raquo;</a> -->
     <!-- footer section -->
     <?php include 'templates/footer.php'?>
     

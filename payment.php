@@ -93,7 +93,7 @@ session_start();
                 if ($result) {
                     echo "<script>
                     alert('Your booking has been placed with booking id=".$bookingId."');
-                    window.location.href='index.php?userid=" . $SESSION['id'] . "';
+                    window.location.href='index.php?userid=" . $userid . "';
                     </script>";
                 } else {
                     echo "<script>
