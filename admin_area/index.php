@@ -45,6 +45,8 @@ if(!isset($_SESSION['userLoggedIn'])){
         if(isset($_GET['bookings'])){
             include 'bookings.php';
         }
+        //closing the connection
+        mysqli_close($conn);
         ?>
 
     </div>

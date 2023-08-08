@@ -89,6 +89,8 @@ if(!isset($_SESSION['userLoggedIn'])){
         
         header('location:index.php?showrooms');
     }
+    //closing the connection
+    mysqli_close($conn);
 ?>
 
 

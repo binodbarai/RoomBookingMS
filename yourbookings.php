@@ -55,7 +55,7 @@ session_start();
                 </div>
                 <div class="book-cancel-buttons">
                     <div class="book-now">
-                        <a href="" class="book-now-button">Booked</a>
+                        <a href="" class="booked-button">Booked</a>
                     </div>
                     <div class="book-now">
                     <a href="cancel.php?booking_id=<?php echo $row['booking_id']; ?>&userid=<?php echo $userid; ?>" class="cancel-button">Cancel</a>
@@ -66,10 +66,14 @@ session_start();
         <hr width="1040px" style="margin: 50px 10px;">
         <?php }?>
         <?php }else { ?>
-    <div class="no-bookings-message">
-        <h1>You have no bookings yet.</h1>
-    </div>
-<?php } ?>
+            <div class="no-bookings-message">
+                <h1>You have no bookings yet.</h1>
+            </div>
+        <?php 
+        } 
+        //closing the connection
+        mysqli_close($conn);
+        ?>
         
     </div>
     <!-- footer section -->

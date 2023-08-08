@@ -185,7 +185,9 @@ session_start();
             </div>
         </div>
     </div>
-
+    <?php //closing the connection
+        mysqli_close($conn);
+    ?>
     <!-- footer section starts -->
     <?php include 'templates/footer.php';?>
     <script src="./js/script.js"></script>

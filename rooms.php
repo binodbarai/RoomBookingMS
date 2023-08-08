@@ -89,7 +89,7 @@ session_start();
             global $conn;
         
             // Construct the SQL query based on the selected sorting criterion
-            $sql = "SELECT * FROM rooms_tbl ORDER BY ";
+            $sql = "SELECT * FROM rooms_tbl where room_status ='Avaliable' ORDER BY ";
         
             if ($sortingCriteria == 'name') {
                 $sql .= "room_type ASC";
@@ -150,7 +150,10 @@ session_start();
         
             // Call the function to retrieve and display the sorted room list with default sorting criteria
             getSortedRooms($defaultSortingCriteria);
+
         }
+        //closing the connection
+        mysqli_close($conn);
         ?>
     </div>
 </div>

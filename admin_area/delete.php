@@ -19,4 +19,6 @@ if(!isset($_SESSION['userLoggedIn'])){
         }
         header('location:index.php?showalluser');
     }
+    //closing the connection
+    mysqli_close($conn);
 ?>

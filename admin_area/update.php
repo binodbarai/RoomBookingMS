@@ -52,57 +52,59 @@ if(!isset($_SESSION['userLoggedIn'])){
 
 
     <?php
-    if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $phone   = $_POST['phone'];
-        $email    = $_POST['email'];
-        
+        if(isset($_POST['submit'])){
+            $username = $_POST['username'];
+            $phone   = $_POST['phone'];
+            $email    = $_POST['email'];
+            
 
-        $query = "UPDATE user_tbl SET username='$username', phone='$phone', email='$email' WHERE id='$id'";
-        $result = mysqli_query($conn,$query);
-        if($result){
-            echo "<script>
-                    alert('Data Updated Successfully')
-                </script>";
-            header('location:index.php');
+            $query = "UPDATE user_tbl SET username='$username', phone='$phone', email='$email' WHERE id='$id'";
+            $result = mysqli_query($conn,$query);
+            if($result){
+                echo "<script>
+                        alert('Data Updated Successfully')
+                    </script>";
+                header('location:index.php');
+            }
         }
-    }
-?>
+        //closing the connection
+        mysqli_close($conn);
+    ?>
     <script>
-    function validateForm() {
-        var fullname = document.forms["myForm"]["username"].value;
-        var mobile = document.forms["myForm"]["phone"].value;
-        var email = document.forms["myForm"]["email"].value;
+        function validateForm() {
+            var fullname = document.forms["myForm"]["username"].value;
+            var mobile = document.forms["myForm"]["phone"].value;
+            var email = document.forms["myForm"]["email"].value;
 
 
-        if (fullname == "") {
-            alert("Please enter your name.");
-            return false;
+            if (fullname == "") {
+                alert("Please enter your name.");
+                return false;
+            }
+            if (mobile == "") {
+                alert("Please enter your mobile number.");
+                return false;
+            }
+            if (email == "") {
+                alert("Please enter your email.");
+                return false;
+            }
+            var mobileRegex = /^[0-9]{10}$/;
+            if (!mobileRegex.test(mobile)) {
+                alert("Please enter a valid 10-digit mobile number.");
+                return false;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+
+
+            return true;
         }
-        if (mobile == "") {
-            alert("Please enter your mobile number.");
-            return false;
-        }
-        if (email == "") {
-            alert("Please enter your email.");
-            return false;
-        }
-        var mobileRegex = /^[0-9]{10}$/;
-        if (!mobileRegex.test(mobile)) {
-            alert("Please enter a valid 10-digit mobile number.");
-            return false;
-        }
-
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert("Please enter a valid email address.");
-            return false;
-        }
-
-
-
-        return true;
-    }
     </script>
 </body>
 

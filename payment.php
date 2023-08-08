@@ -87,22 +87,31 @@ session_start();
                 
             
                 // Insert the booking details into the database
-                $query = "INSERT INTO bookings (booking_id,user_id,fullname, email, phone, room_number,price) VALUES ('$bookingId','$userid', '$fullname', '$email', '$phonenumber', '$roomNumber','$price')";
-                
-                $result=mysqli_query($conn, $query);
+                $query = "INSERT INTO bookings (booking_id, user_id, fullname, email, phone, room_number, price) VALUES ('$bookingId', '$userid', '$fullname', '$email', '$phonenumber', '$roomNumber', '$price')";
+                $result = mysqli_query($conn, $query);
+
                 if ($result) {
-                    echo "<script>
-                    alert('Your booking has been placed with booking id=".$bookingId."');
-                    window.location.href='index.php?userid=" . $userid . "';
-                    </script>";
+                    // Update the room status to "Booked"
+                    $updateQuery = "UPDATE rooms_tbl SET room_status = 'Booked' WHERE room_number = '$roomNumber'";
+                    $updateResult = mysqli_query($conn, $updateQuery);
+
+                    if ($updateResult) {
+                        echo "<script>
+                            alert('Your booking has been placed with booking id=".$bookingId.".');
+                            window.location.href='index.php?userid=" . $userid . "';
+                        </script>";
+                    } else {
+                        echo "<script>
+                            alert('Cannot update room status.');
+                            window.location.href='payment.php';
+                        </script>";
+                    }
                 } else {
                     echo "<script>
-                    alert('Cannot insert data');
-                    window.location.href='payment.php';
+                        alert('Cannot insert data.');
+                        window.location.href='payment.php';
                     </script>";
                 }
-                
-                
             }
             
             // Function to generate a random booking ID
@@ -158,7 +167,10 @@ session_start();
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php } 
+    //closing the connection
+    mysqli_close($conn);
+    ?>
     </div>
 </body>
 </html>

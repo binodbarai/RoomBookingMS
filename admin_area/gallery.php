@@ -33,6 +33,8 @@ if(!isset($_SESSION['userLoggedIn'])){
                 ';
             }
         }
+        //closing the connection
+        mysqli_close($conn);
     ?>
     </tbody>
 </table>

@@ -862,4 +862,11 @@ header ul{
 .cancel-button:hover{
     background-color: #c80000;
 }
+.booked-button{
+    padding: 8px 20px;
+    border-radius: 15px;
+    color: #FFFFFF;
+    background-color: blue;
+    margin-right: 30px;
+}
 

@@ -91,7 +91,10 @@ if (isset($_GET['roomid'])) {
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php }
+    //closing the connection
+    mysqli_close($conn);
+    ?>
 </div>
 
 

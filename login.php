@@ -25,6 +25,9 @@
                     $insertQuery = "INSERT INTO loginHistory_tbl (login_date, user_id)
                                     VALUES ('$loginDate', '$userId')";
                     $result = mysqli_query($conn, $insertQuery);
+
+                    //closing the connection
+                    mysqli_close($conn);
                 }
                 else{
                     $error="Incorrect password.";  

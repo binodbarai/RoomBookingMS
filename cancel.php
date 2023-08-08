@@ -21,5 +21,8 @@ if (isset($_GET['booking_id']) && isset($_GET['userid'])) {
         // Handle the error if the deletion fails
         echo "Failed to cancel the booking.";
     }
+    
 }
+//closing the connection
+mysqli_close($conn);
 ?>
