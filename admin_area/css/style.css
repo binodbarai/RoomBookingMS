@@ -148,3 +148,18 @@ tr:hover {
     background-color: #33FF00;
     text-align: center;
 }
+.checkout-button{
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: #dc3545;
+    color: white; 
+    border: 1px solid #dc3545;
+    border-radius: 5px; 
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+.checkout-button:hover{
+    background-color: #c80000;
+}

@@ -28,7 +28,7 @@ if(!isset($_SESSION['userLoggedIn'])){
 
 
     <div class="wrapper">
-        <h1>Update User</h1>
+        <h1>Update Rooms</h1>
         <form name="myForm" action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm();">
             <div class="row">
                 <label for="name">Room Number</label>

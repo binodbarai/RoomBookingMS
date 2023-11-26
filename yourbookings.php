@@ -37,7 +37,7 @@ session_start();
         <div class="room-card">
             <div class="room-card-image">
                 <div class="image">
-                    <a href=""><img src="./images/rooms/<?php echo $row['room_image'];?>" alt=""></a>
+                    <a href=""><img src="./admin_area/uploadedImages/<?php echo $row['room_image'];?>" alt=""></a>
                 </div>
                 <div class="room-card-details">
                 <h2><?php echo $row['room_type']?></h2>
@@ -58,7 +58,7 @@ session_start();
                         <a href="" class="booked-button">Booked</a>
                     </div>
                     <div class="book-now">
-                    <a href="cancel.php?booking_id=<?php echo $row['booking_id']; ?>&userid=<?php echo $userid; ?>" class="cancel-button">Cancel</a>
+                    <a href="cancel.php?booking_id=<?php echo $row['booking_id']; ?>&userid=<?php echo $userid; ?>&room_number=<?php echo $row['room_number'];?>" class="cancel-button">Cancel</a>
                     </div>
                 </div>
             </div>

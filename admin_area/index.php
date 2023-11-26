@@ -12,7 +12,7 @@ if(!isset($_SESSION['userLoggedIn'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css    ">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 </head>
 <body>
     <nav>
@@ -45,8 +45,6 @@ if(!isset($_SESSION['userLoggedIn'])){
         if(isset($_GET['bookings'])){
             include 'bookings.php';
         }
-        //closing the connection
-        mysqli_close($conn);
         ?>
 
     </div>

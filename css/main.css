@@ -224,10 +224,10 @@ header ul{
 /* check availability styling stars */
 .check-availability{
     height: 170px;
-    width: 1040px;
+    width: 900px;
     position: absolute;
     top: 88%;
-    left: 16%;
+    left: 20%;
     padding: 20px 0px;
     font-family: 'Poppins', sans-serif;
     font-size: 10px;
@@ -252,10 +252,10 @@ header ul{
     display: block;
 }
 .check-availability form .inputs{
-    width: 250px;
+    width: 300px;
 }
 .check-availability-button{
-    width: 250px;
+    width: 300px;
     height: 30px;
     margin-top: 17px;
     display: inline-block;
@@ -271,7 +271,7 @@ header ul{
     background-color: #00cc00;
 }
 .check-availability form .input-fields{
-    width: 250px;
+    width: 300px;
     height: 30px;
     margin-top: 4px;
     padding-left: 5px;
@@ -550,10 +550,10 @@ header ul{
     display: block;
 }
 .check-availability-after form .inputs{
-    width: 250px;
+    width: 300px;
 }
 .check-availability-after form button{
-    width: 250px;
+    width: 300px;
     height: 30px;
     margin-top: 17px;
     display: inline-block;
@@ -568,7 +568,7 @@ header ul{
     background-color: #00cc00;
 }
 .check-availability-after form .input-fields{
-    width: 250px;
+    width: 300px;
     height: 30px;
     margin-top: 4px;
     padding-left: 5px;

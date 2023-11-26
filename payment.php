@@ -153,7 +153,7 @@ session_start();
 
         <?php while ($room_row = mysqli_fetch_assoc($room_result)) { ?>
         <div class="booking-details-right">
-            <img src="./images/rooms/<?php echo $room_row['room_image']; ?>" alt=""><br>
+            <img src="./admin_area/uploadedImages/<?php echo $room_row['room_image']; ?>" alt=""><br>
             <h2><?php echo $room_row['room_type']; ?></h2>
             <div class="services-box">
                 <div class="service-box-icons"><img src="./images/icons/tv-monitor.png" alt=""><span>TV</span></div>
@@ -167,10 +167,7 @@ session_start();
                 </div>
             </div>
         </div>
-    <?php } 
-    //closing the connection
-    mysqli_close($conn);
-    ?>
+    <?php } ?>
     </div>
 </body>
 </html>

@@ -29,10 +29,6 @@ session_start();
         <form action="#">
             <div class="top">
                 <div class="inputs">
-                    <label for="check-in">Check In</label>
-                    <input class="input-fields" type="date" name="check-in-date">
-                </div>
-                <div class="inputs">
                     <label for="Adults">Adults</label>
                     <select class="input-fields" name="no-of-adults">
                         <option value="1">1</option>
@@ -48,10 +44,7 @@ session_start();
                 </div>
             </div>
             <div class="down">
-                <div class="inputs">
-                    <label for="check-out">Check Out</label>
-                    <input class="input-fields" type="date" name="check-out-date">
-                </div>
+                
                 <div class="inputs">
                     <label for="Adults">Children</label>
                     <select class="input-fields" name="no-of-adults">
@@ -106,7 +99,7 @@ session_start();
                     <div class="room-card">
                         <div class="room-card-image">
                             <div class="image">
-                                <a href=""><img src="./images/rooms/<?php echo $row['room_image']; ?>" alt=""></a>
+                                <a href=""><img src="./admin_area/uploadedImages/<?php echo $row['room_image']; ?>" alt=""></a>
                             </div>
                             <div class="room-card-details">
                                 <h2><?php echo $row['room_type']; ?></h2>

@@ -46,10 +46,7 @@ session_start();
         <div class="check-availability">
             <form action="rooms.php">
                 <div class="top">
-                    <div class="inputs">
-                        <label for="check-in">Check In</label>
-                        <input class="input-fields" type="date" name="check-in-date">
-                    </div>
+                    
                     <div class="inputs">
                         <label for="Adults">Adults</label>
                         <select class="input-fields" name="no-of-adults">
@@ -66,10 +63,7 @@ session_start();
                     </div>
                 </div>
                 <div class="down">
-                    <div class="inputs">
-                        <label for="check-out">Check Out</label>
-                        <input class="input-fields" type="date" name="check-out-date">
-                    </div>
+                    
                     <div class="inputs">
                         <label for="Adults">Children</label>
                         <select class="input-fields" name="no-of-adults">
@@ -135,7 +129,7 @@ session_start();
                     ?>
                     <?php while($row=mysqli_fetch_assoc($result) ){?>
                         <div class="room-section-images-container">
-                            <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./images/rooms/<?php echo $row["room_image"]?>');">
+                            <div class="rooms" style="background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.9)) ,  url('./admin_area/uploadedImages/<?php echo $row["room_image"]?>');">
                                 <div class="room-type">
                                     <h3><?php echo $row["room_type"]?></h3><h6><?php echo $row["room_status"]?> room</h6>
                                 </div>
@@ -178,7 +172,7 @@ session_start();
                     $result=mysqli_query($conn,$sql)
                     ?>
                     <?php while($row=mysqli_fetch_assoc($result)){?>
-                    <img src="./images/rooms/<?php echo $row['image']?>" alt="#">
+                    <img src="./admin_area/uploadedImages/<?php echo $row['image']?>" alt="#">
                     <?php 
                     }?>
                 </div>
